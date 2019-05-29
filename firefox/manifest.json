@@ -1,0 +1,29 @@
+{
+	"manifest_version": 2,
+	"name": "Facebook Like Hider",
+	"version": "1.3",
+	"description": "This browser extension hides likes and reactions from appearing in your Facebook notifications",
+
+	"icons": {
+		"48": "icons/icon-48.png",
+		"96": "icons/icon-96.png"
+	},
+	
+	"content_scripts": [
+		{
+			"matches": ["*://*.facebook.com/*"],
+			"js": ["scripts/main.js"],
+			"run_at": "document_start"
+		}
+	],
+	
+	"background": {
+		"scripts": [ "background.js" ]
+	},
+	
+	"options_ui": {
+		"page": "options/options.html"
+	},
+	
+	"permissions": ["storage"]
+}

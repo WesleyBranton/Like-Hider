@@ -7,7 +7,7 @@ This browser extension also can hide the likes and reactions counter from posts 
 
 **CURRENT VERSION:** 1.3
 
-**PRODUCT PAGE:** (View Now)[https://addons.mozilla.org/en-CA/firefox/addon/like-hider/]
+**PRODUCT PAGE:** [View Now](https://addons.mozilla.org/en-CA/firefox/addon/like-hider/)
 
 ## Release Notes
 ### Version 1.3

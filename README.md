@@ -17,6 +17,12 @@ To develop and test the extension, you need to open the "about:debugging" page i
 Further documentation about developing Firefox extensions can be found [here](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension).
 
 ## Release Notes
+### Version 2.0
+* **[FIXED]** Fixed issue when Facebook is loaded for the first time in a session
+* **[FIXED]** Add-on has less of an impact on page loading speeds
+* **[CHANGED]** Add-on now uses dynamic content scripts instead of Javascript injection
+* **[NEW]** Note added to options menu advising to reload existing tabs
+
 ### Version 1.3
 * **[FIXED]** Add-on can hide like counters and buttons again
 

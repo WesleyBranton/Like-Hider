@@ -9,14 +9,6 @@
 		"96": "icons/icon-96.png"
 	},
 	
-	"content_scripts": [
-		{
-			"matches": ["*://*.facebook.com/*"],
-			"js": ["scripts/main.js"],
-			"run_at": "document_start"
-		}
-	],
-	
 	"background": {
 		"scripts": [ "background.js" ]
 	},
@@ -25,5 +17,5 @@
 		"page": "options/options.html"
 	},
 	
-	"permissions": ["storage"]
+	"permissions": ["storage","*://*.facebook.com/*"]
 }

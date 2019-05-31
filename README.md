@@ -20,8 +20,9 @@ Further documentation about developing Firefox extensions can be found [here](ht
 ### Version 2.0
 * **[FIXED]** Fixed issue when Facebook is loaded for the first time in a session
 * **[FIXED]** Add-on has less of an impact on page loading speeds
-* **[CHANGED]** Add-on now uses dynamic content scripts instead of Javascript injection
+* **[NEW]** Branding update
 * **[NEW]** Note added to options menu advising to reload existing tabs
+* **[CHANGED]** Add-on now uses dynamic content scripts instead of Javascript injection
 
 ### Version 1.3
 * **[FIXED]** Add-on can hide like counters and buttons again

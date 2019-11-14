@@ -1,29 +1,32 @@
 {
-	"manifest_version": 2,
-	"name": "Facebook Like Hider",
-	"version": "2.0",
-	"description": "This browser extension hides likes and reactions from appearing in your Facebook notifications",
-	"author": "Wesley Branton",
-	
-	"developer": {
-		"name": "Wesley Branton",
-		"url": "http://addons.wesleybranton.com"
-	},
+    "manifest_version": 2,
+    "name": "Facebook Like Hider",
+    "version": "2.0",
+    "description": "This browser extension hides likes and reactions from appearing in your Facebook notifications",
+    "author": "Wesley Branton",
+    
+    "developer": {
+        "name": "Wesley Branton",
+        "url": "http://addons.wesleybranton.com"
+    },
 
-	"icons": {
-		"32": "icons/icon-32.png",
-		"48": "icons/icon-48.png",
-		"64": "icons/icon-64.png",
-		"96": "icons/icon-96.png"
-	},
-	
-	"background": {
-		"scripts": [ "background.js" ]
-	},
-	
-	"options_ui": {
-		"page": "options/options.html"
-	},
-	
-	"permissions": ["storage","*://*.facebook.com/*"]
+    "icons": {
+        "32": "icons/icon-32.png",
+        "48": "icons/icon-48.png",
+        "64": "icons/icon-64.png",
+        "96": "icons/icon-96.png"
+    },
+    
+    "background": {
+        "scripts": [ "background.js" ]
+    },
+    
+    "options_ui": {
+        "page": "options/options.html"
+    },
+    
+    "permissions": [
+		"storage",
+		"*://*.facebook.com/*"
+	]
 }

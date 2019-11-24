@@ -5,17 +5,17 @@
 function saveOptions() {
     browser.storage.local.set({
         setting: {
-            hideNotification: document.getElementById('hideNotification').checked,
-            hideLikeCounter: document.getElementById('hideLikeCounter').checked,
-            hideLikeButton: document.getElementById('hideLikeButton').checked
+            hideNotification: document.settings.notifications.value,
+            hideLikeCounter: document.settings.counters.value,
+            hideLikeButton: document.settings.buttons.value
         }
     });
 }
 
 function restoreOptions(item) {
-    document.getElementById('hideNotification').checked = item.setting.hideNotification;
-    document.getElementById('hideLikeCounter').checked = item.setting.hideLikeCounter;
-    document.getElementById('hideLikeButton').checked = item.setting.hideLikeButton;
+    document.settings.notifications.value = item.setting.hideNotification;
+    document.settings.counters.value = item.setting.hideLikeCounter;
+    document.settings.buttons.value = item.setting.hideLikeButton;
 }
 
 browser.storage.local.get('setting', restoreOptions);

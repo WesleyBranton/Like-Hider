@@ -16,8 +16,8 @@ Further documentation about developing Firefox extensions can be found [here](ht
 
 ## Release Notes
 ### Version 2.1
-**[NEW]** On-site popups for like notifications are hidden
-**[CHANGE]** Overhauled options UI
+* **[NEW]** On-site popups for like notifications are hidden
+* **[CHANGE]** Overhauled options UI
 
 ### Version 2.0
 * **[FIXED]** Fixed issue when Facebook is loaded for the first time in a session

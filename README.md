@@ -13,26 +13,3 @@ If you want to make changes to this extension, you are welcome to do so. All fil
 To develop and test the extension, you need to open the "about:debugging" page in Firefox and select "Load Temporary Add-on". Then you can select any file within the "firefox" folder of this repository.
 
 Further documentation about developing Firefox extensions can be found [here](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension).
-
-## Release Notes
-### Version 2.0
-* **[FIXED]** Fixed issue when Facebook is loaded for the first time in a session
-* **[FIXED]** Add-on has less of an impact on page loading speeds
-* **[NEW]** Branding update
-* **[NEW]** Note added to options menu advising to reload existing tabs
-* **[CHANGED]** Add-on now uses dynamic content scripts instead of Javascript injection
-
-### Version 1.3
-* **[FIXED]** Add-on can hide like counters and buttons again
-
-### Version 1.2
-* **[FIXED]** Add-on no longer hides comment sorting option
-
-### Version 1.1.1
-* **[FIXED]** Add-on display name is now consistent with add-on listing
-
-### Version 1.1
-* **[FIXED]** Hidden UI elements should no longer momentarily display while page is loading
-* **[FIXED]** Removed dot left behind by hidden like button (on comments)
-* **[FIXED]** Removed spacing left behind by hidden like button (on posts)
-* **[CHANGED]** Simplified options menu

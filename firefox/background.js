@@ -27,7 +27,7 @@ async function addCSS(item) {
     // Hide like notifications
     if (item.setting.hideNotification) {
         css[0] = await browser.contentScripts.register({
-            matches: [facebook],
+            matches: [facebook, facebookOnion],
             css: [{
                 file: 'styles/no_like_notifications.css'
             }],
@@ -39,7 +39,7 @@ async function addCSS(item) {
     // Hide post/comment like counter
     if (item.setting.hideLikeCounter) {
         css[1] = await browser.contentScripts.register({
-            matches: [facebook],
+            matches: [facebook, facebookOnion],
             css: [{
                 file: 'styles/no_like_counters.css'
             }],
@@ -51,7 +51,7 @@ async function addCSS(item) {
     // Hide post/comment like button
     if (item.setting.hideLikeButton) {
         css[2] = await browser.contentScripts.register({
-            matches: [facebook],
+            matches: [facebook, facebookOnion],
             css: [{
                 file: 'styles/no_like_buttons.css'
             }],
@@ -74,5 +74,6 @@ function removeCSS() {
 browser.runtime.onInstalled.addListener(handleInstalled);
 browser.storage.onChanged.addListener(applySettings);
 const facebook = '*://*.facebook.com/*';
+const facebookOnion = '*://*.facebookcorewwwi.onion/*';
 var css = [null, null, null];
 applySettings();

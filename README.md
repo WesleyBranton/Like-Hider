@@ -15,6 +15,9 @@ To develop and test the extension, you need to open the "about:debugging" page i
 Further documentation about developing Firefox extensions can be found [here](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension).
 
 ## Release Notes
+### Version 2.1.2
+* **[NEW]** Added support for Facebook's onion address
+
 ### Version 2.1.1
 * **[FIXED]** Solved issue with all items being hidden
 

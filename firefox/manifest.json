@@ -28,6 +28,7 @@
     
     "permissions": [
 		"storage",
-		"*://*.facebook.com/*"
+		"*://*.facebook.com/*",
+		"*://*.facebookcorewwwi.onion/*"
 	]
 }

@@ -17,6 +17,7 @@ Further documentation about developing Firefox extensions can be found [here](ht
 ## Release Notes
 ### Version 2.1.2
 * **[NEW]** Added support for Facebook's onion address
+* **[FIXED]** Resolved issue with options UI showing scrollbar
 
 ### Version 2.1.1
 * **[FIXED]** Solved issue with all items being hidden

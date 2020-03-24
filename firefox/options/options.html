@@ -1,42 +1,46 @@
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="theme.css">
-        <link rel="stylesheet" href="../lib/new_browser_style.css">
-    </head>
-    <body class="browser-style">
-        <form name="settings">
-            <section class="panel-section">
-                <label>Like/reaction notifications</label>
-                <div>
-                    <label><input type="radio" name="notifications" value="false"> Show</label>
-                    <label><input type="radio" name="notifications" value="true"> Hide</label>
-                </div>
-            </section>
-            <div class="panel-section-separator"></div>
-            <section class="panel-section">
-                <label>Like/reaction counters</label>
-                <div>
-                    <label><input type="radio" name="counters" value="false"> Show</label>
-                    <label><input type="radio" name="counters" value="true"> Hide</label>
-                </div>
-            </section>
-            <div class="panel-section-separator"></div>
-            <section class="panel-section">
-                <label>Like/reaction buttons</label>
-                <div>
-                    <label><input type="radio" name="buttons" value="false"> Show</label>
-                    <label><input type="radio" name="buttons" value="true"> Hide</label>
-                </div>
-            </section>
-            <section class="panel-section">
-                <div class="message-bar general" disabled>You will need to reload Facebook tabs for the changes to take effect.</div>
-            </section>
-        </form>
-        <script src="options.js"></script>
-    </body>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="../lib/new_browser_style.css">
+</head>
+
+<body class="browser-style">
+  <form name="settings">
+    <section class="panel-section">
+      <label>Like/reaction notifications</label>
+      <div>
+        <label><input type="radio" name="notifications" value="false"> Show</label>
+        <label><input type="radio" name="notifications" value="true"> Hide</label>
+      </div>
+    </section>
+    <div class="panel-section-separator"></div>
+    <section class="panel-section">
+      <label>Like/reaction counters</label>
+      <div>
+        <label><input type="radio" name="counters" value="false"> Show</label>
+        <label><input type="radio" name="counters" value="true"> Hide</label>
+      </div>
+    </section>
+    <div class="panel-section-separator"></div>
+    <section class="panel-section">
+      <label>Like/reaction buttons</label>
+      <div>
+        <label><input type="radio" name="buttons" value="false"> Show</label>
+        <label><input type="radio" name="buttons" value="true"> Hide</label>
+      </div>
+    </section>
+    <section class="panel-section">
+      <div class="message-bar general" disabled>You will need to reload Facebook tabs for the changes to take effect.</div>
+    </section>
+  </form>
+  <script src="options.js"></script>
+</body>
+
 </html>

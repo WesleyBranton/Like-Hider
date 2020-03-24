@@ -4,7 +4,7 @@
     "version": "2.1.2",
     "description": "This browser extension hides likes and reactions from appearing in your Facebook notifications",
     "author": "Wesley Branton",
-    
+
     "developer": {
         "name": "Wesley Branton",
         "url": "http://addons.wesleybranton.com"
@@ -16,19 +16,19 @@
         "64": "icons/icon-64.png",
         "96": "icons/icon-96.png"
     },
-    
+
     "background": {
-        "scripts": [ "background.js" ]
+        "scripts": ["background.js"]
     },
-    
+
     "options_ui": {
         "page": "options/options.html",
-		"browser_style": false
+        "browser_style": false
     },
-    
+
     "permissions": [
-		"storage",
-		"*://*.facebook.com/*",
-		"*://*.facebookcorewwwi.onion/*"
-	]
+        "storage",
+        "*://*.facebook.com/*",
+        "*://*.facebookcorewwwi.onion/*"
+    ]
 }

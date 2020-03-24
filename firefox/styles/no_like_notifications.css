@@ -4,5 +4,5 @@
 
 ._33c[data-gt*="feedback_reaction_generic"],
 ._50d1 li[data-gt*="notif_type"][data-gt*="feedback_reaction"] {
-    display:none !important;
+  display: none !important;
 }

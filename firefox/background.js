@@ -2,7 +2,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-// First install initialization
+/**
+ * First installation initialization
+ * @param {Object} details 
+ */
 function handleInstalled(details) {
     if (details.reason == 'install') {
         browser.storage.local.set({
@@ -15,17 +18,20 @@ function handleInstalled(details) {
     }
 }
 
-// Applies the user's settings
-function applySettings() {
+/**
+ * Apply CSS rules
+ * @async
+ */
+async function addCSS() {
+    // Remove existing CSS rules
     removeCSS();
-    let settings = browser.storage.local.get('setting');
-    settings.then(addCSS);
-}
 
-// Create CSS rules
-async function addCSS(item) {
+    // Load data from Storage API
+    let setting = await browser.storage.local.get('setting');
+    setting = setting.setting;
+
     // Hide like notifications
-    if (item.setting.hideNotification) {
+    if (setting.hideNotification) {
         css[0] = await browser.contentScripts.register({
             matches: [facebook, facebookOnion],
             css: [{
@@ -35,9 +41,9 @@ async function addCSS(item) {
             allFrames: true
         });
     }
-    
+
     // Hide post/comment like counter
-    if (item.setting.hideLikeCounter) {
+    if (setting.hideLikeCounter) {
         css[1] = await browser.contentScripts.register({
             matches: [facebook, facebookOnion],
             css: [{
@@ -47,9 +53,9 @@ async function addCSS(item) {
             allFrames: true
         });
     }
-    
+
     // Hide post/comment like button
-    if (item.setting.hideLikeButton) {
+    if (setting.hideLikeButton) {
         css[2] = await browser.contentScripts.register({
             matches: [facebook, facebookOnion],
             css: [{
@@ -61,7 +67,9 @@ async function addCSS(item) {
     }
 }
 
-// Clear CSS rules
+/**
+ * Clear existing CSS rules
+ */
 function removeCSS() {
     for (i = 0; i < css.length; i++) {
         if (css[i]) {
@@ -72,8 +80,8 @@ function removeCSS() {
 }
 
 browser.runtime.onInstalled.addListener(handleInstalled);
-browser.storage.onChanged.addListener(applySettings);
+browser.storage.onChanged.addListener(addCSS);
 const facebook = '*://*.facebook.com/*';
 const facebookOnion = '*://*.facebookcorewwwi.onion/*';
-var css = [null, null, null];
-applySettings();
+let css = [null, null, null];
+addCSS();

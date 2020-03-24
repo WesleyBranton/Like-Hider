@@ -2,7 +2,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-// Saves options
+/**
+ * Save settings to Storage API
+ */
 function saveOptions() {
     browser.storage.local.set({
         setting: {
@@ -13,14 +15,25 @@ function saveOptions() {
     });
 }
 
-// Loads options from storage
-function restoreOptions(item) {
-    document.settings.notifications.value = item.setting.hideNotification;
-    document.settings.counters.value = item.setting.hideLikeCounter;
-    document.settings.buttons.value = item.setting.hideLikeButton;
+/**
+ * Load options from settings
+ * @async
+ */
+async function restoreOptions() {
+    // Load data from Storage API
+    let setting = await browser.storage.local.get('setting');
+    setting = setting.setting;
+
+    // Update GUI
+    document.settings.notifications.value = setting.hideNotification;
+    document.settings.counters.value = setting.hideLikeCounter;
+    document.settings.buttons.value = setting.hideLikeButton;
 }
 
-// Converts string value to boolean
+/**
+ * Convert string to boolean
+ * @param {string} string 
+ */
 function toBoolean(string) {
     if (string == 'true') {
         return true;
@@ -29,5 +42,5 @@ function toBoolean(string) {
     }
 }
 
-browser.storage.local.get('setting', restoreOptions);
+restoreOptions();
 document.querySelector('form').addEventListener('change', saveOptions);

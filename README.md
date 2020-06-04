@@ -15,6 +15,10 @@ To develop and test the extension, you need to open the "about:debugging" page i
 Further documentation about developing Firefox extensions can be found [here](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension).
 
 ## Release Notes
+### Version 2.2
+* **[NEW]** Added support for new Facebook design
+* **[FIXED]** Comment counter stays on right side when like counter is hidden
+
 ### Version 2.1.2
 * **[NEW]** Added support for Facebook's onion address
 * **[FIXED]** Resolved issue with options UI showing scrollbar

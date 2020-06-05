@@ -12,7 +12,8 @@ function handleInstalled(details) {
             setting: {
                 hideNotification: true,
                 hideLikeCounter: false,
-                hideLikeButton: false
+                hideLikeButton: false,
+                betterSponsor: false
             }
         });
     }
@@ -60,6 +61,18 @@ async function addCSS() {
             matches: [facebook, facebookOnion],
             css: [{
                 file: 'styles/no_like_buttons.css'
+            }],
+            runAt: 'document_start',
+            allFrames: true
+        });
+    }
+
+    // Improve "Sponsored" content label
+    if (setting.betterSponsor) {
+        css[2] = await browser.contentScripts.register({
+            matches: [facebook, facebookOnion],
+            css: [{
+                file: 'styles/better_sponsor.css'
             }],
             runAt: 'document_start',
             allFrames: true

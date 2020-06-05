@@ -10,7 +10,8 @@ function saveOptions() {
         setting: {
             hideNotification: toBoolean(document.settings.notifications.value),
             hideLikeCounter: toBoolean(document.settings.counters.value),
-            hideLikeButton: toBoolean(document.settings.buttons.value)
+            hideLikeButton: toBoolean(document.settings.buttons.value),
+            betterSponsor: toBoolean(document.settings.sponsor.value)
         }
     });
 }
@@ -28,6 +29,7 @@ async function restoreOptions() {
     document.settings.notifications.value = setting.hideNotification;
     document.settings.counters.value = setting.hideLikeCounter;
     document.settings.buttons.value = setting.hideLikeButton;
+    document.settings.sponsor.value = setting.betterSponsor;
 }
 
 /**

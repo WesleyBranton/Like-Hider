@@ -14,6 +14,8 @@ function saveOptions() {
             betterSponsor: (document.settings.sponsor.value == 'true')
         }
     });
+
+    updateDemo();
 }
 
 /**
@@ -30,7 +32,22 @@ async function restoreOptions() {
     if (setting.hideLikeCounter != undefined) document.settings.counters.value = setting.hideLikeCounter;
     if (setting.hideLikeButton != undefined) document.settings.buttons.value = setting.hideLikeButton;
     if (setting.betterSponsor != undefined) document.settings.sponsor.value = setting.betterSponsor;
+
+    updateDemo();
 }
 
+/**
+ * Update the demo post appearance
+ */
+function updateDemo() {
+    const post = document.getElementById('post');
+
+    post.className = '';
+    if (document.settings.counters.value == 'true') post.classList.add('hide-counter');
+    if (document.settings.buttons.value == 'true') post.classList.add('disable-like');
+    if (document.settings.sponsor.value == 'true') post.classList.add('better-sponsor');
+}
+
+pageType();
 restoreOptions();
 document.querySelector('form').addEventListener('change', saveOptions);

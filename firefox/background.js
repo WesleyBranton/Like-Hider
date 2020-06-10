@@ -3,23 +3,6 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 /**
- * First installation initialization
- * @param {Object} details 
- */
-function handleInstalled(details) {
-    if (details.reason == 'install') {
-        browser.storage.local.set({
-            setting: {
-                hideNotification: true,
-                hideLikeCounter: false,
-                hideLikeButton: false,
-                betterSponsor: false
-            }
-        });
-    }
-}
-
-/**
  * Apply CSS rules
  * @async
  */
@@ -28,11 +11,10 @@ async function addCSS() {
     removeCSS();
 
     // Load data from Storage API
-    let setting = await browser.storage.local.get('setting');
-    setting = setting.setting;
+    const { setting } = await browser.storage.local.get('setting');
 
     // Hide like notifications
-    if (setting.hideNotification) {
+    if (!setting || setting.hideNotification == undefined || setting.hideNotification) {
         css[0] = await browser.contentScripts.register({
             matches: [facebook, facebookOnion],
             css: [{
@@ -42,6 +24,9 @@ async function addCSS() {
             allFrames: true
         });
     }
+
+    // Stop processing if no settings exist
+    if (!setting) return false;
 
     // Hide post/comment like counter
     if (setting.hideLikeCounter) {
@@ -92,9 +77,8 @@ function removeCSS() {
     }
 }
 
-browser.runtime.onInstalled.addListener(handleInstalled);
 browser.storage.onChanged.addListener(addCSS);
 const facebook = '*://*.facebook.com/*';
 const facebookOnion = '*://*.facebookcorewwwi.onion/*';
-let css = [null, null, null];
+const css = [null, null, null];
 addCSS();

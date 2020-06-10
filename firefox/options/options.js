@@ -8,10 +8,10 @@
 function saveOptions() {
     browser.storage.local.set({
         setting: {
-            hideNotification: toBoolean(document.settings.notifications.value),
-            hideLikeCounter: toBoolean(document.settings.counters.value),
-            hideLikeButton: toBoolean(document.settings.buttons.value),
-            betterSponsor: toBoolean(document.settings.sponsor.value)
+            hideNotification: (document.settings.notifications.value == 'true'),
+            hideLikeCounter: (document.settings.counters.value == 'true'),
+            hideLikeButton: (document.settings.buttons.value == 'true'),
+            betterSponsor: (document.settings.sponsor.value == 'true')
         }
     });
 }
@@ -22,26 +22,14 @@ function saveOptions() {
  */
 async function restoreOptions() {
     // Load data from Storage API
-    let setting = await browser.storage.local.get('setting');
-    setting = setting.setting;
+    const { setting } = await browser.storage.local.get('setting');
+    if (!setting) return false;
 
     // Update GUI
-    document.settings.notifications.value = setting.hideNotification;
-    document.settings.counters.value = setting.hideLikeCounter;
-    document.settings.buttons.value = setting.hideLikeButton;
-    document.settings.sponsor.value = setting.betterSponsor;
-}
-
-/**
- * Convert string to boolean
- * @param {string} string 
- */
-function toBoolean(string) {
-    if (string == 'true') {
-        return true;
-    } else {
-        return false;
-    }
+    if (setting.hideNotification != undefined) document.settings.notifications.value = setting.hideNotification;
+    if (setting.hideLikeCounter != undefined) document.settings.counters.value = setting.hideLikeCounter;
+    if (setting.hideLikeButton != undefined) document.settings.buttons.value = setting.hideLikeButton;
+    if (setting.betterSponsor != undefined) document.settings.sponsor.value = setting.betterSponsor;
 }
 
 restoreOptions();

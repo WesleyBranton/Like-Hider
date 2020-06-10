@@ -77,7 +77,20 @@ function removeCSS() {
     }
 }
 
+/**
+ * Handle installation
+ * @param {Object} details 
+ */
+function handleInstalled(details) {
+    if (details.reason == 'install') {
+        browser.tabs.create({
+            url: 'options/options.html'
+        });
+    }
+}
+
 browser.storage.onChanged.addListener(addCSS);
+browser.runtime.onInstalled.addListener(handleInstalled)
 const facebook = '*://*.facebook.com/*';
 const facebookOnion = '*://*.facebookcorewwwi.onion/*';
 const css = [null, null, null];

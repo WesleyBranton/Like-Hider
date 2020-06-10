@@ -2,6 +2,30 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
+/* Tab specific settings */
+body.tab form {
+    width: 100%;
+    max-width: 700px;
+    margin: 1em auto;
+    background: white;
+    min-height: calc(100vh - 2em);
+    padding: 1em;
+    box-sizing: border-box;
+    border: 1px solid var(--grey-30);
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px var(--grey-20);
+}
+
+body.tab {
+    background: var(--grey-20) !important;
+    box-sizing: border-box;
+}
+
+body:not(.tab) header {
+    display: none !important;
+}
+/* Tab specific settings - End */
+
 /* Reusable styles */
 .flexbox {
     display: flex !important;

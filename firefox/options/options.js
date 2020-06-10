@@ -48,6 +48,15 @@ function updateDemo() {
     if (document.settings.sponsor.value == 'true') post.classList.add('better-sponsor');
 }
 
+/**
+ * Check if the options page is being loaded in a new tab
+ */
+function pageType() {
+    if (!window.location.href.includes('type=ui')) {
+        document.body.classList.add('tab');
+    }
+}
+
 pageType();
 restoreOptions();
 document.querySelector('form').addEventListener('change', saveOptions);

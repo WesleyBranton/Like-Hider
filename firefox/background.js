@@ -83,14 +83,22 @@ function removeCSS() {
  */
 function handleInstalled(details) {
     if (details.reason == 'install') {
-        browser.tabs.create({
-            url: 'options/options.html'
-        });
+        openOptions();
     }
 }
 
+/**
+ * Open options page
+ */
+function openOptions() {
+    browser.tabs.create({
+        url: 'options/options.html'
+    });
+}
+
 browser.storage.onChanged.addListener(addCSS);
-browser.runtime.onInstalled.addListener(handleInstalled)
+browser.runtime.onInstalled.addListener(handleInstalled);
+browser.pageAction.onClicked.addListener(openOptions);
 const facebook = '*://*.facebook.com/*';
 const facebookOnion = '*://*.facebookcorewwwi.onion/*';
 const css = [null, null, null];

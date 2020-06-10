@@ -17,6 +17,18 @@
         "96": "icons/icon-96.png"
     },
 
+    "page_action": {
+        "default_icon": {
+            "19": "icons/icon-19.png",
+            "38": "icons/icon-38.png"
+        },
+        "default_title": "Facebook Like Hider",
+        "show_matches": [
+            "*://*.facebook.com/*",
+            "*://*.facebookcorewwwi.onion/*"
+        ]
+    },
+
     "background": {
         "scripts": ["background.js"]
     },

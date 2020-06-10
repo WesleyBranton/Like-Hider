@@ -21,7 +21,8 @@ body.tab {
     box-sizing: border-box;
 }
 
-body:not(.tab) header {
+body:not(.tab) header,
+body:not(.tab) #donate {
     display: none !important;
 }
 /* Tab specific settings - End */
@@ -152,6 +153,31 @@ body:not(.tab) header {
     padding: .1em .5em;
 }
 /* Post styling - End */
+
+/* Donation bar */
+#donate {
+    background: var(--blue-60);
+    padding: 0 10px !important;
+}
+
+#donate span {
+    color: white;
+}
+
+#donate a {
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    background: rgba(255, 255, 255, .4);
+    padding: 4px 10px;
+    text-decoration: none !important;
+    border-radius: 5px;
+}
+
+#donate a:hover {
+    background: rgba(255, 255, 255, .6);
+}
+/* Donation bar - End */
 
 /* User settings mimic */
 #post.hide-counter .hide-counter,

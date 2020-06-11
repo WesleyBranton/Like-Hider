@@ -84,6 +84,13 @@ function removeCSS() {
 function handleInstalled(details) {
     if (details.reason == 'install') {
         openOptions();
+    } else if (details.reason == 'update') {
+        const previousVersion = parseFloat(details.previousVersion);
+        if (previousVersion < 3) {
+            browser.tabs.create({
+                url: 'https://wesleybranton.github.io/Facebook-Like-Hider/feature/new/bettersponsors'
+            });
+        }
     }
 }
 

@@ -3,22 +3,6 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 /**
- * First installation initialization
- * @param {Object} details 
- */
-function handleInstalled(details) {
-    if (details.reason == 'install') {
-        browser.storage.local.set({
-            setting: {
-                hideNotification: true,
-                hideLikeCounter: false,
-                hideLikeButton: false
-            }
-        });
-    }
-}
-
-/**
  * Apply CSS rules
  * @async
  */
@@ -27,11 +11,10 @@ async function addCSS() {
     removeCSS();
 
     // Load data from Storage API
-    let setting = await browser.storage.local.get('setting');
-    setting = setting.setting;
+    const { setting } = await browser.storage.local.get('setting');
 
     // Hide like notifications
-    if (setting.hideNotification) {
+    if (!setting || setting.hideNotification == undefined || setting.hideNotification) {
         css[0] = await browser.contentScripts.register({
             matches: [facebook, facebookOnion],
             css: [{
@@ -41,6 +24,9 @@ async function addCSS() {
             allFrames: true
         });
     }
+
+    // Stop processing if no settings exist
+    if (!setting) return false;
 
     // Hide post/comment like counter
     if (setting.hideLikeCounter) {
@@ -65,6 +51,18 @@ async function addCSS() {
             allFrames: true
         });
     }
+
+    // Improve "Sponsored" content label
+    if (setting.betterSponsor) {
+        css[2] = await browser.contentScripts.register({
+            matches: [facebook, facebookOnion],
+            css: [{
+                file: 'styles/better_sponsor.css'
+            }],
+            runAt: 'document_start',
+            allFrames: true
+        });
+    }
 }
 
 /**
@@ -79,9 +77,36 @@ function removeCSS() {
     }
 }
 
-browser.runtime.onInstalled.addListener(handleInstalled);
+/**
+ * Handle installation
+ * @param {Object} details 
+ */
+function handleInstalled(details) {
+    if (details.reason == 'install') {
+        openOptions();
+    } else if (details.reason == 'update') {
+        const previousVersion = parseFloat(details.previousVersion);
+        if (previousVersion < 3) {
+            browser.tabs.create({
+                url: 'https://wesleybranton.github.io/Facebook-Like-Hider/feature/new/bettersponsors'
+            });
+        }
+    }
+}
+
+/**
+ * Open options page
+ */
+function openOptions() {
+    browser.tabs.create({
+        url: 'options/options.html'
+    });
+}
+
 browser.storage.onChanged.addListener(addCSS);
+browser.runtime.onInstalled.addListener(handleInstalled);
+browser.pageAction.onClicked.addListener(openOptions);
 const facebook = '*://*.facebook.com/*';
 const facebookOnion = '*://*.facebookcorewwwi.onion/*';
-let css = [null, null, null];
+const css = [null, null, null];
 addCSS();

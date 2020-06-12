@@ -1,0 +1,200 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
+
+/* Tab specific settings */
+body.tab form {
+    width: 100%;
+    max-width: 700px;
+    margin: 1em auto;
+    background: white;
+    min-height: calc(100vh - 2em);
+    padding: 1em;
+    box-sizing: border-box;
+    border: 1px solid var(--grey-30);
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px var(--grey-20);
+}
+
+body.tab {
+    background: var(--grey-20) !important;
+    box-sizing: border-box;
+}
+
+body:not(.tab) header,
+body:not(.tab) #donate {
+    display: none !important;
+}
+/* Tab specific settings - End */
+
+/* Reusable styles */
+.flexbox {
+    display: flex !important;
+    align-items: center;
+}
+
+.nocenter {
+    align-items: unset !important;
+}
+
+.flex {
+    flex: 1 !important;
+}
+
+.noflex {
+    flex: unset !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.sub {
+    font-size: 80%;
+}
+
+.fade {
+    color: var(--grey-50);
+}
+
+.blue {
+    color: var(--blue-60);
+}
+/* Reusable styles - End */
+
+/* Post styling */
+#post {
+    background: white;
+    border: 1px solid var(--grey-30);
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px var(--grey-20);
+    padding: 1em;
+    position: relative;
+}
+
+#post > #content {
+    font-size: 150%;
+    margin: .5em auto;
+}
+
+#post > #actions {
+    border: 1px solid var(--grey-30);
+    border-left: none;
+    border-right: none;
+    margin: 1em auto;
+    padding: .25em;
+}
+
+#post > #actions * {
+    text-align: center;
+    padding: .3em;
+    margin: 0 .5em;
+    font-size: 110%;
+    border-radius: 10px;
+}
+
+#post > #actions *:hover {
+    cursor: pointer;
+    background: var(--grey-20);
+}
+
+#header #details span {
+    display: block;
+}
+
+#footer #count #comment {
+    text-align: right;
+}
+
+#image {
+    background: var(--grey-30);
+    border-radius: 10000px;
+    width: 50px;
+    height: 50px;
+    margin-right: 1em;
+}
+
+#comments #new #text {
+    background: var(--grey-20);
+    border-radius: 10000px;
+    padding: .5em 1em;
+}
+
+#comments #comment #actions {
+    margin-left: 1em;
+}
+
+#comments #comment #actions span::after {
+    content: " - ";
+}
+
+#comments #comment #actions span:last-of-type:after {
+    content: "" !important;
+}
+
+#comments #comment #text {
+    position: relative;
+    background: var(--grey-20);
+    padding: .5em 1em;
+    border-radius: 10px;
+}
+
+#comments #comment #text span {
+    display: block;
+}
+
+#comments #comment #text #counter {
+    position: absolute;
+    bottom: -1em;
+    right: .5em;
+    background: white;
+    border-radius: 1000px;
+    border: 1px solid grey;
+    padding: .1em .5em;
+}
+/* Post styling - End */
+
+/* Donation bar */
+#donate {
+    background: var(--blue-60);
+    padding: 0 10px !important;
+}
+
+#donate span {
+    color: white;
+}
+
+#donate a {
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    background: rgba(255, 255, 255, .4);
+    padding: 4px 10px;
+    text-decoration: none !important;
+    border-radius: 5px;
+}
+
+#donate a:hover {
+    background: rgba(255, 255, 255, .6);
+}
+/* Donation bar - End */
+
+/* User settings mimic */
+#post.hide-counter .hide-counter,
+#post.disable-like .disable-like {
+    display: none !important;
+}
+
+#post.better-sponsor .better-sponsor {
+    color: white !important;
+    font-weight: bold !important;
+    border-radius: 100px !important;
+    text-transform: uppercase !important;
+    background: #1877f2 !important;
+    line-height: 25px !important;
+    box-sizing: border-box !important;
+    width: 90% !important;
+    display: inline-block !important;
+    text-align: center !important;
+}
+/* User settings mimic - End */

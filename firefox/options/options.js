@@ -8,11 +8,14 @@
 function saveOptions() {
     browser.storage.local.set({
         setting: {
-            hideNotification: toBoolean(document.settings.notifications.value),
-            hideLikeCounter: toBoolean(document.settings.counters.value),
-            hideLikeButton: toBoolean(document.settings.buttons.value)
+            hideNotification: (document.settings.notifications.value == 'true'),
+            hideLikeCounter: (document.settings.counters.value == 'true'),
+            hideLikeButton: (document.settings.buttons.value == 'true'),
+            betterSponsor: (document.settings.sponsor.value == 'true')
         }
     });
+
+    updateDemo();
 }
 
 /**
@@ -21,26 +24,39 @@ function saveOptions() {
  */
 async function restoreOptions() {
     // Load data from Storage API
-    let setting = await browser.storage.local.get('setting');
-    setting = setting.setting;
+    const { setting } = await browser.storage.local.get('setting');
+    if (!setting) return false;
 
     // Update GUI
-    document.settings.notifications.value = setting.hideNotification;
-    document.settings.counters.value = setting.hideLikeCounter;
-    document.settings.buttons.value = setting.hideLikeButton;
+    if (setting.hideNotification != undefined) document.settings.notifications.value = setting.hideNotification;
+    if (setting.hideLikeCounter != undefined) document.settings.counters.value = setting.hideLikeCounter;
+    if (setting.hideLikeButton != undefined) document.settings.buttons.value = setting.hideLikeButton;
+    if (setting.betterSponsor != undefined) document.settings.sponsor.value = setting.betterSponsor;
+
+    updateDemo();
 }
 
 /**
- * Convert string to boolean
- * @param {string} string 
+ * Update the demo post appearance
  */
-function toBoolean(string) {
-    if (string == 'true') {
-        return true;
-    } else {
-        return false;
+function updateDemo() {
+    const post = document.getElementById('post');
+
+    post.className = '';
+    if (document.settings.counters.value == 'true') post.classList.add('hide-counter');
+    if (document.settings.buttons.value == 'true') post.classList.add('disable-like');
+    if (document.settings.sponsor.value == 'true') post.classList.add('better-sponsor');
+}
+
+/**
+ * Check if the options page is being loaded in a new tab
+ */
+function pageType() {
+    if (!window.location.href.includes('type=ui')) {
+        document.body.classList.add('tab');
     }
 }
 
+pageType();
 restoreOptions();
 document.querySelector('form').addEventListener('change', saveOptions);

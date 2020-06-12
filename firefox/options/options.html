@@ -6,25 +6,79 @@
 <html>
 
 <head>
+  <title>Facebook Like Hider Settings</title>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="../lib/new_browser_style.css">
+  <link rel="icon" type="image/png" href="../icons/icon-96.png">
 </head>
 
 <body class="browser-style">
   <form name="settings">
+    <header class="panel-section panel-section-header">
+      <img class="icon-section-header" src="../icons/icon-96.png">
+      <h1 class="text-section-header">Facebook Like Hider Settings</h1>
+    </header>
+
+    <section class="panel-section">
+
+      <div id="post">
+        <div id="header" class="flexbox">
+          <div id="image" class="noflex"></div>
+          <div id="details" class="flex">
+            <span id="name" class="bold">John Smith</span>
+            <span id="time" class="sub fade better-sponsor">Sponsored</span>
+          </div>
+        </div>
+        <div id="content" class="">How does everyone like the Facebook Like Hider add-on for Firefox?</div>
+        <div id="footer" class="">
+          <div id="count" class="flexbox">
+            <span id="like" class="flex blue hide-counter">2 Likes</span>
+            <span id="comment" class="flex fade">1 Comment</span>
+          </div>
+        </div>
+        <div id="actions" class="flexbox">
+          <div id="like" class="flex bold fade disable-like">Like</div>
+          <div id="comment" class="flex bold fade">Comment</div>
+          <div id="share" class="flex bold fade">Share</div>
+        </div>
+        <div id="comments" class="">
+          <div id="comment" class="flexbox nocenter">
+            <div id="image" class="noflex"></div>
+            <div id="box" class="flex">
+              <div id="text">
+                <span id="name" class="bold">Jane Doe</span>
+                <span id="content">Love it!</span>
+                <div id="counter" class="sub blue hide-counter">2 Likes</div>
+              </div>
+              <div id="actions">
+                <span id="like" class="sub bold disable-like">Like</span>
+                <span id="reply" class="sub bold">Reply</span>
+                <span id="time" class="sub fade">15m</span>
+              </div>
+            </div>
+          </div>
+          <div id="new" class="flexbox">
+            <div id="image" class="noflex"></div>
+            <div id="text" class="flex">Write a comment...</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
     <section class="panel-section">
       <label>Like/reaction notifications</label>
       <div>
         <label><input type="radio" name="notifications" value="false"> Show</label>
-        <label><input type="radio" name="notifications" value="true"> Hide</label>
+        <label><input type="radio" name="notifications" value="true" checked> Hide</label>
       </div>
     </section>
     <div class="panel-section-separator"></div>
     <section class="panel-section">
       <label>Like/reaction counters</label>
       <div>
-        <label><input type="radio" name="counters" value="false"> Show</label>
+        <label><input type="radio" name="counters" value="false" checked> Show</label>
         <label><input type="radio" name="counters" value="true"> Hide</label>
       </div>
     </section>
@@ -32,12 +86,26 @@
     <section class="panel-section">
       <label>Like/reaction buttons</label>
       <div>
-        <label><input type="radio" name="buttons" value="false"> Show</label>
+        <label><input type="radio" name="buttons" value="false" checked> Show</label>
         <label><input type="radio" name="buttons" value="true"> Hide</label>
       </div>
     </section>
+    <div class="panel-section-separator"></div>
     <section class="panel-section">
+      <label>Better indicators on sponsored posts</label>
+      <div>
+        <label><input type="radio" name="sponsor" value="true"> Show</label>
+        <label><input type="radio" name="sponsor" value="false" checked> Hide</label>
+      </div>
+    </section>
+    <section class="panel-section has-help">
       <div class="message-bar general" disabled>You will need to reload Facebook tabs for the changes to take effect.</div>
+    </section>
+    <section class="panel-section help-row">
+      <div id="donate" class="message-bar" disabled>
+        <span>Like this add-on? Please, consider making a donation.</span>
+        <a href="https://www.paypal.me/wbrantonaddons" target="_blank">Donate</a>
+      </div>
     </section>
   </form>
   <script src="options.js"></script>

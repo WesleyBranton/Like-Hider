@@ -15,6 +15,12 @@ To develop and test the extension, you need to open the "about:debugging" page i
 Further documentation about developing Firefox extensions can be found [here](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension).
 
 ## Release Notes
+### Version 3.0
+* **[NEW]** Added feature to increase the visibility of the label on "sponsored" posts
+* **[NEW]** Add-on options can now be opened via a button in the address bar when on Facebook
+* **[NEW]** Users are now prompted to configure settings on first installation
+* **[FIXED]** Resolved issues with settings appearing broken on first install
+
 ### Version 2.2
 * **[NEW]** Added support for new Facebook design
 * **[FIXED]** Comment counter stays on right side when like counter is hidden

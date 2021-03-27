@@ -54,7 +54,7 @@ async function addCSS() {
 
     // Improve "Sponsored" content label
     if (setting.betterSponsor) {
-        css[2] = await browser.contentScripts.register({
+        css[3] = await browser.contentScripts.register({
             matches: [facebook, facebookOnion],
             css: [{
                 file: 'styles/better_sponsor.css'
@@ -108,5 +108,5 @@ browser.runtime.onInstalled.addListener(handleInstalled);
 browser.pageAction.onClicked.addListener(openOptions);
 const facebook = '*://*.facebook.com/*';
 const facebookOnion = '*://*.facebookcorewwwi.onion/*';
-const css = [null, null, null];
+const css = [null, null, null, null];
 addCSS();

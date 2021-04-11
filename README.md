@@ -1,4 +1,4 @@
-# Facebook Like Hider [<img align="right" src=".github/fxaddon.png">](https://addons.mozilla.org/en-CA/firefox/addon/like-hider/)
+# Like Hider for Facebook  [<img align="right" src=".github/fxaddon.png">](https://addons.mozilla.org/firefox/addon/like-hider/)
 Although it is a feature that many people have asked for, there is no way to stop likes and reactions on your posts and comments from displaying in your Facebook notifications. This browser extension does just that. De-clutter your notification window by getting rid of those pointless notifications about likes and reactions.
 
 But why not take it a step further? A common theory is that social media can increase depression and can become addictive. This is due, in part, to the liking system used by social media platforms, which provides gratification that keeps you coming back.

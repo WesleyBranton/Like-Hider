@@ -15,4 +15,4 @@ To develop and test the extension, you need to open the "about:debugging" page i
 Further documentation about developing Firefox extensions can be found [here](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension).
 
 ## Release Notes
-Release notes can be found on [this GitHub repository](https://github.com/WesleyBranton/Facebook-Like-Hider/releases) or [the Firefox add-ons listing](https://addons.mozilla.org/firefox/addon/like-hider/versions/).
+Release notes can be found on [this GitHub repository](https://github.com/WesleyBranton/Like-Hider-For-Facebook/releases) or [the Firefox add-ons listing](https://addons.mozilla.org/firefox/addon/like-hider/versions/).

@@ -88,7 +88,7 @@ function handleInstalled(details) {
         const previousVersion = parseFloat(details.previousVersion);
         if (previousVersion < 3) {
             browser.tabs.create({
-                url: 'https://addons.wesleybranton.com/like-hider/feature/new/bettersponsors'
+                url: 'https://addons.wesleybranton.com/addon/like-hider-for-facebook/update/v3_0'
             });
         }
     }

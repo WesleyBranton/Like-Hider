@@ -3,83 +3,106 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 /**
- * Apply CSS rules
- * @async
+ * Generate and cache new CSS based on user settings
+ * @param {Object} settings
  */
-async function addCSS() {
-    // Remove existing CSS rules
-    removeCSS();
-
-    // Load data from Storage API
-    const { setting } = await browser.storage.local.get('setting');
+function updateCSS(settings) {
+    let newCSS = '';
 
     // Hide like notifications
-    if (!setting || setting.hideNotification == undefined || setting.hideNotification) {
-        css[0] = await browser.contentScripts.register({
-            matches: [facebook, facebookOnion],
-            css: [{
-                file: 'styles/no_like_notifications.css'
-            }],
-            runAt: 'document_start',
-            allFrames: true
-        });
+    if (!settings || settings.hideNotification == undefined || settings.hideNotification) {
+        newCSS += code.hideNotification;
     }
 
-    // Stop processing if no settings exist
-    if (!setting) return false;
+    if (settings) {
+        // Hide post/comment like counter
+        if (settings.hideLikeCounter) {
+            if (newCSS.length > 0) newCSS += '\n\n';
+            newCSS += code.hideLikeCounter;
+        }
 
-    // Hide post/comment like counter
-    if (setting.hideLikeCounter) {
-        css[1] = await browser.contentScripts.register({
-            matches: [facebook, facebookOnion],
-            css: [{
-                file: 'styles/no_like_counters.css'
-            }],
-            runAt: 'document_start',
-            allFrames: true
-        });
+        // Hide post/comment like button
+        if (settings.hideLikeButton) {
+            if (newCSS.length > 0) newCSS += '\n\n';
+            newCSS += code.hideLikeButton;
+        }
+
+        // Improve "Sponsored" content label
+        if (settings.betterSponsor) {
+            if (newCSS.length > 0) newCSS += '\n\n';
+            newCSS += code.betterSponsor;
+        }
     }
 
-    // Hide post/comment like button
-    if (setting.hideLikeButton) {
-        css[2] = await browser.contentScripts.register({
-            matches: [facebook, facebookOnion],
-            css: [{
-                file: 'styles/no_like_buttons.css'
-            }],
-            runAt: 'document_start',
-            allFrames: true
-        });
-    }
+    css = newCSS;
+    loaded = true;
+    broadcastToPorts();
+}
 
-    // Improve "Sponsored" content label
-    if (setting.betterSponsor) {
-        css[3] = await browser.contentScripts.register({
-            matches: [facebook, facebookOnion],
-            css: [{
-                file: 'styles/better_sponsor.css'
-            }],
-            runAt: 'document_start',
-            allFrames: true
+/**
+ * Reload user settings from Storage API
+ * @param {boolean} validate
+ */
+function reloadSettings(validate) {
+    browser.storage.local.get((data) => {
+        if (validate) {
+            validateAndUpdate(data);
+        } else {
+            updateCSS(data);
+        }
+    });
+}
+
+/**
+ * Migrate Storage API data to new model (if required)
+ * @param {Object} data
+ */
+function validateAndUpdate(data) {
+    if (data.setting) {
+        browser.storage.local.clear(() => {
+            browser.storage.local.set(data.setting, () => {
+                reloadSettings(false);
+            });
         });
+    } else {
+        updateCSS(data);
     }
 }
 
 /**
- * Clear existing CSS rules
+ * Open connection to content script
+ * @param {Object} port
  */
-function removeCSS() {
-    for (i = 0; i < css.length; i++) {
-        if (css[i]) {
-            css[i].unregister();
-            css[i] = null;
-        }
+function registerPort(port) {
+    while (ports[port.name]) {
+        port.name = parseInt(port.name) + 1 + '';
+    }
+
+    ports[port.name] = port;
+    port.onDisconnect.addListener(unregisterPort);
+    if (loaded) port.postMessage(css);
+}
+
+/**
+ * Close connection to content script
+ * @param {Object} port
+ */
+function unregisterPort(port) {
+    delete ports[port.name];
+}
+
+/**
+ * Send CSS to all content scripts
+ */
+function broadcastToPorts() {
+    for (let port of Object.values(ports)) {
+        port.postMessage(css);
     }
 }
 
 /**
  * Handle installation
- * @param {Object} details 
+ * @param {Object} details
  */
 function handleInstalled(details) {
     if (details.reason == 'install') {
@@ -103,10 +126,13 @@ function openOptions() {
     });
 }
 
-browser.storage.onChanged.addListener(addCSS);
+let css = '';
+let loaded = false;
+const ports = {};
+
+browser.runtime.onConnect.addListener(registerPort);
+browser.storage.onChanged.addListener(() => { reloadSettings(false) });
 browser.runtime.onInstalled.addListener(handleInstalled);
 browser.pageAction.onClicked.addListener(openOptions);
-const facebook = '*://*.facebook.com/*';
-const facebookOnion = '*://*.facebookcorewwwi.onion/*';
-const css = [null, null, null, null];
-addCSS();
+
+reloadSettings(true);

@@ -2,7 +2,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-/* Version 1.0 */
+/* Version 1.1
+ * GitHub Source: https://github.com/WesleyBranton/New-Browser-Style
+ * Documentation: https://github.com/WesleyBranton/New-Browser-Style/blob/master/docs/components.md
+ * Release Notes: https://github.com/WesleyBranton/New-Browser-Style/releases/tag/v1.1 */
 
 /* Variables */
 :root {
@@ -16,20 +19,20 @@
   --grey-70: rgb(56, 56, 61);
   --grey-80: rgb(42, 42, 46);
   --grey-90: rgb(12, 12, 13);
-  --grey-90-a10: rgba(12, 12, 13, .1);
-  --grey-90-a20: rgba(12, 12, 13, .2);
-  --grey-90-a30: rgba(12, 12, 13, .3);
-  --grey-90-a40: rgba(12, 12, 13, .4);
-  --grey-90-a50: rgba(12, 12, 13, .5);
-  --grey-90-a60: rgba(12, 12, 13, .6);
-  --grey-90-a70: rgba(12, 12, 13, .7);
-  --grey-90-a80: rgba(12, 12, 13, .8);
-  --grey-90-a90: rgba(12, 12, 13, .9);
+  --grey-90-a10: rgba(12, 12, 13, 0.1);
+  --grey-90-a20: rgba(12, 12, 13, 0.2);
+  --grey-90-a30: rgba(12, 12, 13, 0.3);
+  --grey-90-a40: rgba(12, 12, 13, 0.4);
+  --grey-90-a50: rgba(12, 12, 13, 0.5);
+  --grey-90-a60: rgba(12, 12, 13, 0.6);
+  --grey-90-a70: rgba(12, 12, 13, 0.7);
+  --grey-90-a80: rgba(12, 12, 13, 0.8);
+  --grey-90-a90: rgba(12, 12, 13, 0.9);
   --blue-40: rgb(69, 161, 255);
   --blue-50: rgb(10, 132, 255);
-  --blue-50-a10: rgba(10, 132, 255, .1);
-  --blue-50-a20: rgba(10, 132, 255, .2);
-  --blue-50-a30: rgba(10, 132, 255, .3);
+  --blue-50-a10: rgba(10, 132, 255, 0.1);
+  --blue-50-a20: rgba(10, 132, 255, 0.2);
+  --blue-50-a30: rgba(10, 132, 255, 0.3);
   --blue-60: rgb(0, 96, 223);
   --blue-70: rgb(0, 62, 170);
   --blue-80: rgb(0, 34, 117);
@@ -41,16 +44,17 @@
   --green-90: rgb(0, 55, 6);
   --yellow-50: rgb(255, 233, 0);
   --yellow-60: rgb(215, 182, 0);
-  --yellow-60-a30: rgba(215, 182, 0, .3);
+  --yellow-60-a30: rgba(215, 182, 0, 0.3);
   --yellow-70: rgb(164, 127, 0);
   --yellow-80: rgb(113, 81, 0);
   --yellow-90: rgb(62, 40, 0);
   --red-50: rgb(255, 0, 57);
   --red-60: rgb(215, 0, 34);
-  --red-60-a30: rgba(215, 0, 34, .3);
+  --red-60-a30: rgba(215, 0, 34, 0.3);
   --red-70: rgb(164, 0, 15);
   --red-80: rgb(90, 0, 2);
   --red-90: rgb(62, 2, 0);
+  --purple-60: #8000d7;
 
   /* Icons */
   --warning-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="rgba(12, 12, 13, .8)" d="M14.742 12.106L9.789 2.2a2 2 0 0 0-3.578 0l-4.953 9.91A2 2 0 0 0 3.047 15h9.905a2 2 0 0 0 1.79-2.894zM7 5a1 1 0 0 1 2 0v4a1 1 0 0 1-2 0zm1 8.25A1.25 1.25 0 1 1 9.25 12 1.25 1.25 0 0 1 8 13.25z"></path></svg>');
@@ -58,8 +62,9 @@
   --info-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="rgba(12, 12, 13, .8)" d="M8 1a7 7 0 1 0 7 7 7.008 7.008 0 0 0-7-7zm0 13a6 6 0 1 1 6-6 6.007 6.007 0 0 1-6 6zm0-7a1 1 0 0 0-1 1v3a1 1 0 1 0 2 0V8a1 1 0 0 0-1-1zm0-3.188A1.188 1.188 0 1 0 9.188 5 1.188 1.188 0 0 0 8 3.812z"></path></svg>');
   --check-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="rgba(12, 12, 13, .8)" d="M6 14a1 1 0 0 1-.707-.293l-3-3a1 1 0 0 1 1.414-1.414l2.157 2.157 6.316-9.023a1 1 0 0 1 1.639 1.146l-7 10a1 1 0 0 1-.732.427A.863.863 0 0 1 6 14z"></path></svg>');
   --down-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="context-fill" d="M6 9a1 1 0 0 1-.707-.293l-3-3a1 1 0 0 1 1.414-1.414L6 6.586l2.293-2.293a1 1 0 0 1 1.414 1.414l-3 3A1 1 0 0 1 6 9z"></path></svg>');
- }
- 
+  --link-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="rgb(0, 96, 223)" d="M5 1H4a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-1a1 1 0 0 0-2 0v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h1a1 1 0 1 0 0-2z"></path><path fill="rgb(0, 96, 223)" d="M14.935 1.618A1 1 0 0 0 14.012 1h-5a1 1 0 1 0 0 2h2.586L8.305 6.293A1 1 0 1 0 9.72 7.707l3.293-3.293V7a1 1 0 1 0 2 0V2a1 1 0 0 0-.077-.382z"></path></svg>');
+}
+
 /* Page reset */
 * {
   color: var(--grey-90);
@@ -97,6 +102,21 @@ select:-moz-focusring * {
   height: 1px;
 }
 
+.browser-style .panel-section-separator.dashed {
+  background: none;
+  border-top: dashed var(--grey-90-a30);
+  height: 1px;
+}
+.browser-style .panel-section-separator.dotted {
+  background: none;
+  border-top: 3px dotted var(--grey-90-a30);
+}
+.browser-style .panel-section-separator.rounded {
+  background: none;
+  border-top: 5px solid var(--grey-90-a30);
+  border-radius: 3px;
+}
+
 .browser-style .panel-section {
   align-items: center;
   box-sizing: border-box;
@@ -106,7 +126,7 @@ select:-moz-focusring * {
   padding: 16px;
   width: 100%;
 }
- 
+
 .browser-style .panel-section:not(.panel-section-header):not(.panel-section-list) *:first-child {
   flex: 1;
 }
@@ -220,10 +240,28 @@ select:-moz-focusring * {
   color: var(--blue-70);
 }
 
+.browser-style a:visited,
+.browser-style a.visited {
+  color: var(--purple-60);
+}
+
 .browser-style a:focus,
 .browser-style a.focus,
 .browser-style a.focused {
   box-shadow: 0 0 0 2px var(--blue-50), 0 0 0 6px var(--blue-50-a30);
+}
+
+.browser-style a:not(.internal)[href*="//"]::after,
+.browser-style a.external {
+  background-image: var(--link-icon);
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+  margin: -.3rem .15rem 0 .25rem;
 }
 
 /* Buttons */
@@ -241,7 +279,7 @@ select:-moz-focusring * {
 
 .browser-style button:disabled {
   cursor: not-allowed;
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .browser-style button.micro {
@@ -329,7 +367,7 @@ select:-moz-focusring * {
 }
 
 /* Text input & Selects */
-.browser-style input:not([type=radio]):not([type=checkbox]):not([type=range]),
+.browser-style input:not([type="radio"]):not([type="checkbox"]):not([type="range"]),
 .browser-style select,
 .browser-style textarea {
   border: 1px solid var(--grey-90-a20);
@@ -384,8 +422,8 @@ select:-moz-focusring * {
   padding-right: 24px;
 }
 
-.browser-style input[type=radio],
-.browser-style input[type=checkbox] {
+.browser-style input[type="radio"],
+.browser-style input[type="checkbox"] {
   cursor: pointer;
 }
 
@@ -395,11 +433,12 @@ select:-moz-focusring * {
   background-position: left 8px bottom 50%;
   background-repeat: no-repeat;
   border-radius: 4px;
+  box-sizing: border-box;
   display: flex;
   font-size: 16px;
   margin: 5px 0;
   min-height: 32px;
-  padding: 0 4px 0 32px;
+  padding: 5px 4px 5px 32px;
   text-align: left;
   width: auto;
 }
@@ -458,7 +497,7 @@ select:-moz-focusring * {
 }
 
 .browser-style .panel-list-item.disabled {
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .browser-style .panel-list-item .text {
@@ -472,5 +511,5 @@ select:-moz-focusring * {
 
 .browser-style .panel-section-list .panel-section-separator {
   margin: 4px 0;
-  width:100%;
+  width: 100%;
 }

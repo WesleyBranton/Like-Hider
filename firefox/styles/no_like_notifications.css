@@ -1,9 +1,0 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
-
-._33c[data-gt*="feedback_reaction_generic"],
-._50d1 li[data-gt*="notif_type"][data-gt*="feedback_reaction"],
-.j34wkznp.qp9yad78.pmk7jnqg.kr520xx4 .l9j0dhe7 a[href*="feedback_reaction_generic"] {
-  display: none !important;
-}

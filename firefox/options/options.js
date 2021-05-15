@@ -7,12 +7,10 @@
  */
 function saveOptions() {
     browser.storage.local.set({
-        setting: {
-            hideNotification: (document.settings.notifications.value == 'true'),
-            hideLikeCounter: (document.settings.counters.value == 'true'),
-            hideLikeButton: (document.settings.buttons.value == 'true'),
-            betterSponsor: (document.settings.sponsor.value == 'true')
-        }
+        hideNotification: (document.settings.notifications.value == 'true'),
+        hideLikeCounter: (document.settings.counters.value == 'true'),
+        hideLikeButton: (document.settings.buttons.value == 'true'),
+        betterSponsor: (document.settings.sponsor.value == 'true')
     });
 
     updateDemo();
@@ -20,13 +18,8 @@ function saveOptions() {
 
 /**
  * Load options from settings
- * @async
  */
-async function restoreOptions() {
-    // Load data from Storage API
-    const { setting } = await browser.storage.local.get('setting');
-    if (!setting) return false;
-
+function restoreOptions(setting) {
     // Update GUI
     if (setting.hideNotification != undefined) document.settings.notifications.value = setting.hideNotification;
     if (setting.hideLikeCounter != undefined) document.settings.counters.value = setting.hideLikeCounter;
@@ -58,5 +51,5 @@ function pageType() {
 }
 
 pageType();
-restoreOptions();
+browser.storage.local.get(restoreOptions);
 document.querySelector('form').addEventListener('change', saveOptions);

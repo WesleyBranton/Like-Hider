@@ -51,5 +51,6 @@ function pageType() {
 }
 
 pageType();
+document.body.classList.add(BROWSERSTRINGS[runningOn].toLowerCase());
 browser.storage.local.get(restoreOptions);
 document.querySelector('form').addEventListener('change', saveOptions);

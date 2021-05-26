@@ -198,3 +198,12 @@ body:not(.tab) #donate {
     text-align: center !important;
 }
 /* User settings mimic - End */
+
+/* Browser specific */
+body:not(.firefox) .firefox-only,
+body:not(.chrome) .chrome-only,
+body:not(.edge) .edge-only,
+body:not(.opera) .opera-only {
+    display: none !important;
+}
+/* Browser specific - End */

@@ -25,4 +25,10 @@ const browsers = {
     EDGE: 2,
     OPERA: 3
 };
+const BROWSERSTRINGS = [
+    "Firefox",
+    "Chrome",
+    "Edge",
+    "Opera"
+];
 const runningOn = detectBrowser();

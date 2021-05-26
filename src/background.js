@@ -133,6 +133,6 @@ const ports = {};
 browser.runtime.onConnect.addListener(registerPort);
 browser.storage.onChanged.addListener(() => { reloadSettings(false) });
 browser.runtime.onInstalled.addListener(handleInstalled);
-browser.pageAction.onClicked.addListener(openOptions);
+if (runningOn == browsers.FIREFOX) browser.pageAction.onClicked.addListener(openOptions);
 
 reloadSettings(true);

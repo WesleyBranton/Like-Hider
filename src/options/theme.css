@@ -2,31 +2,6 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-/* Tab specific settings */
-body.tab form {
-    width: 100%;
-    max-width: 700px;
-    margin: 1em auto;
-    background: white;
-    min-height: calc(100vh - 2em);
-    padding: 1em;
-    box-sizing: border-box;
-    border: 1px solid var(--grey-30);
-    border-radius: 10px;
-    box-shadow: 0 0 2px 2px var(--grey-20);
-}
-
-body.tab {
-    background: var(--grey-20) !important;
-    box-sizing: border-box;
-}
-
-body:not(.tab) header,
-body:not(.tab) #donate {
-    display: none !important;
-}
-/* Tab specific settings - End */
-
 /* Reusable styles */
 .flexbox {
     display: flex !important;
@@ -60,14 +35,27 @@ body:not(.tab) #donate {
 .blue {
     color: var(--blue-60);
 }
+
+.clickable {
+    cursor: pointer;
+}
+
+input[type=radio] {
+    margin: 0 0.5em;
+    padding: 0;
+}
+
+.flexbox > input[type=radio] {
+    margin-left: 2em;
+}
 /* Reusable styles - End */
 
 /* Post styling */
 #post {
-    background: white;
-    border: 1px solid var(--grey-30);
+    background: var(--container-background);
+    border: 1px solid var(--button-secondary-background);
     border-radius: 10px;
-    box-shadow: 0 0 2px 2px var(--grey-20);
+    box-shadow: 0 0 2px 2px var(--button-secondary-background);
     padding: 1em;
     position: relative;
 }
@@ -78,7 +66,7 @@ body:not(.tab) #donate {
 }
 
 #post > #actions {
-    border: 1px solid var(--grey-30);
+    border: 1px solid var(--button-secondary-background);
     border-left: none;
     border-right: none;
     margin: 1em auto;
@@ -95,7 +83,7 @@ body:not(.tab) #donate {
 
 #post > #actions *:hover {
     cursor: pointer;
-    background: var(--grey-20);
+    background: var(--button-secondary-background);
 }
 
 #header #details span {
@@ -107,7 +95,7 @@ body:not(.tab) #donate {
 }
 
 #image {
-    background: var(--grey-30);
+    background: var(--button-secondary-background-active);
     border-radius: 10000px;
     width: 50px;
     height: 50px;
@@ -115,7 +103,7 @@ body:not(.tab) #donate {
 }
 
 #comments #new #text {
-    background: var(--grey-20);
+    background: var(--button-secondary-background);
     border-radius: 10000px;
     padding: .5em 1em;
 }
@@ -134,7 +122,7 @@ body:not(.tab) #donate {
 
 #comments #comment #text {
     position: relative;
-    background: var(--grey-20);
+    background: var(--button-secondary-background);
     padding: .5em 1em;
     border-radius: 10px;
 }
@@ -147,9 +135,9 @@ body:not(.tab) #donate {
     position: absolute;
     bottom: -1em;
     right: .5em;
-    background: white;
+    color: var(--button-primary-text);
+    background: var(--button-primary-background);
     border-radius: 1000px;
-    border: 1px solid grey;
     padding: .1em .5em;
 }
 /* Post styling - End */
@@ -198,3 +186,12 @@ body:not(.tab) #donate {
     text-align: center !important;
 }
 /* User settings mimic - End */
+
+/* Browser specific */
+body:not(.firefox) .firefox-only,
+body:not(.chrome) .chrome-only,
+body:not(.edge) .edge-only,
+body:not(.opera) .opera-only {
+    display: none !important;
+}
+/* Browser specific - End */

@@ -26,12 +26,6 @@ function updateCSS(settings) {
             if (newCSS.length > 0) newCSS += '\n\n';
             newCSS += code.hideLikeButton;
         }
-
-        // Improve "Sponsored" content label
-        if (settings.betterSponsor) {
-            if (newCSS.length > 0) newCSS += '\n\n';
-            newCSS += code.betterSponsor;
-        }
     }
 
     css = newCSS;
@@ -133,6 +127,6 @@ const ports = {};
 browser.runtime.onConnect.addListener(registerPort);
 browser.storage.onChanged.addListener(() => { reloadSettings(false) });
 browser.runtime.onInstalled.addListener(handleInstalled);
-browser.pageAction.onClicked.addListener(openOptions);
+if (runningOn == browsers.FIREFOX) browser.pageAction.onClicked.addListener(openOptions);
 
 reloadSettings(true);

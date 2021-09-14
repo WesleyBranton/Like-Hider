@@ -9,8 +9,7 @@ function saveOptions() {
     browser.storage.local.set({
         hideNotification: (document.settings.notifications.value == 'true'),
         hideLikeCounter: (document.settings.counters.value == 'true'),
-        hideLikeButton: (document.settings.buttons.value == 'true'),
-        betterSponsor: (document.settings.sponsor.value == 'true')
+        hideLikeButton: (document.settings.buttons.value == 'true')
     });
 
     updateDemo();
@@ -24,7 +23,6 @@ function restoreOptions(setting) {
     if (setting.hideNotification != undefined) document.settings.notifications.value = setting.hideNotification;
     if (setting.hideLikeCounter != undefined) document.settings.counters.value = setting.hideLikeCounter;
     if (setting.hideLikeButton != undefined) document.settings.buttons.value = setting.hideLikeButton;
-    if (setting.betterSponsor != undefined) document.settings.sponsor.value = setting.betterSponsor;
 
     updateDemo();
 }
@@ -38,7 +36,6 @@ function updateDemo() {
     post.className = '';
     if (document.settings.counters.value == 'true') post.classList.add('hide-counter');
     if (document.settings.buttons.value == 'true') post.classList.add('disable-like');
-    if (document.settings.sponsor.value == 'true') post.classList.add('better-sponsor');
 }
 
 /**
@@ -51,5 +48,6 @@ function pageType() {
 }
 
 pageType();
+document.body.classList.add(BROWSERSTRINGS[runningOn].toLowerCase());
 browser.storage.local.get(restoreOptions);
 document.querySelector('form').addEventListener('change', saveOptions);

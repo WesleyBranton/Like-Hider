@@ -35,12 +35,12 @@
             "*://*.facebook.com/*",
             "*://*.facebookcorewwwi.onion/*"
         ],
-        "js": ["content.js"],
+        "js": ["crossbrowser.js", "content.js"],
         "run_at": "document_start"
     }],
 
     "background": {
-        "scripts": ["css.js", "background.js"]
+        "scripts": ["crossbrowser.js", "css.js", "background.js"]
     },
 
     "options_ui": {

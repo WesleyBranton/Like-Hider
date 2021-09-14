@@ -6,8 +6,7 @@
 const code = {
     hideNotification: '',
     hideLikeCounter: '',
-    hideLikeButton: '',
-    betterSponsor: ''
+    hideLikeButton: ''
 };
 
 // Hide like notifications
@@ -33,20 +32,4 @@ li._6coj:nth-of-type(2) ._6cok,
 ._18vi:first-of-type,
 .rq0escxv.l9j0dhe7.du4w35lb.j83agx80.pfnyh3mw.i1fnvgqd.gs1a9yip.owycx6da.btwxx1t3.ph5uu5jm.b3onmgus.e5nlhep0.ecm0bbzt.nkwizq5d.roh60bw9.mysgfdmx.hddg9phg > div:first-child {
     display: none !important;
-}`;
-
-// Improve "Sponsored" content label
-code.betterSponsor =
-`.oajrlxb2.g5ia77u1.qu0x051f.esr5mh6w.e9989ue4.r7d6kgcz.rq0escxv.nhd2j8a9.nc684nl6.p7hjln8o.kvgmc6g5.cxmmr5t8.oygrvhab.hcukyx3x.jb3vyjys.rz4wbd8a.qt6c0cv9.a8nywdso.i1ao9s8h.esuyzwwr.f1sip0of.lzcic4wl.gmql0nx0.gpro0wi8.b1v8xokw[href="#"]:not([aria-label*="0"]):not([aria-label*="1"]):not([aria-label*="2"]):not([aria-label*="3"]):not([aria-label*="4"]):not([aria-label*="5"]):not([aria-label*="6"]):not([aria-label*="7"]):not([aria-label*="8"]):not([aria-label*="9"]),
-.oajrlxb2.g5ia77u1.qu0x051f.esr5mh6w.e9989ue4.r7d6kgcz.rq0escxv.nhd2j8a9.nc684nl6.p7hjln8o.kvgmc6g5.cxmmr5t8.oygrvhab.hcukyx3x.jb3vyjys.rz4wbd8a.qt6c0cv9.a8nywdso.i1ao9s8h.esuyzwwr.f1sip0of.lzcic4wl.gmql0nx0.gpro0wi8.b1v8xokw[href*="/ads/"] {
-    color: white !important;
-    font-weight: bold !important;
-    border-radius: 100px !important;
-    text-transform: uppercase !important;
-    background: #1877f2 !important;
-    line-height: 25px !important;
-    box-sizing: border-box !important;
-    width: 90% !important;
-    display: inline-block !important;
-    text-align: center !important;
 }`;

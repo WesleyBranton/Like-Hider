@@ -14,15 +14,14 @@
   <link rel="icon" type="image/png" href="../icons/icon-96.png">
 </head>
 
-<body class="browser-style">
-  <form name="settings">
+<body class="browser-style browser-style-page">
+  <form name="settings" class="browser-style-container">
     <header class="panel-section panel-section-header">
       <img class="icon-section-header" src="../icons/icon-96.png">
       <h1 class="text-section-header">Like Hider for Facebook Settings</h1>
     </header>
 
     <section class="panel-section">
-
       <div id="post">
         <div id="header" class="flexbox">
           <div id="image" class="noflex"></div>
@@ -65,37 +64,49 @@
           </div>
         </div>
       </div>
-
     </section>
+
     <section class="panel-section">
       <label>Like/reaction notifications</label>
-      <div>
-        <label><input type="radio" name="notifications" value="false"> Show</label>
-        <label><input type="radio" name="notifications" value="true" checked> Hide</label>
+      <div class="flexbox">
+        <input id="radio-notifications-false" type="radio" name="notifications" value="false">
+        <label class="clickable" for="radio-notifications-false">Show</label>
+        <input id="radio-notifications-true" type="radio" name="notifications" value="true">
+        <label class="clickable" for="radio-notifications-true">Hide</label>
       </div>
     </section>
+
     <div class="panel-section-separator"></div>
+
     <section class="panel-section">
       <label>Like/reaction counters</label>
-      <div>
-        <label><input type="radio" name="counters" value="false" checked> Show</label>
-        <label><input type="radio" name="counters" value="true"> Hide</label>
+      <div class="flexbox">
+        <input id="radio-counters-false" type="radio" name="counters" value="false">
+        <label class="clickable" for="radio-counters-false">Show</label>
+        <input id="radio-counters-true" type="radio" name="counters" value="true">
+        <label class="clickable" for="radio-counters-true">Hide</label>
       </div>
     </section>
+
     <div class="panel-section-separator"></div>
+
     <section class="panel-section">
       <label>Like/reaction buttons</label>
-      <div>
-        <label><input type="radio" name="buttons" value="false" checked> Show</label>
-        <label><input type="radio" name="buttons" value="true"> Hide</label>
+      <div class="flexbox">
+        <input id="radio-buttons-false" type="radio" name="buttons" value="false">
+        <label class="clickable" for="radio-buttons-false">Show</label>
+        <input id="radio-buttons-true" type="radio" name="buttons" value="true">
+        <label class="clickable" for="radio-buttons-true">Hide</label>
       </div>
     </section>
+
     <section class="panel-section">
       <div id="donate" class="message-bar" disabled>
         <span>Like this add-on? Please, consider making a donation.</span>
         <a href="https://www.paypal.me/wbrantonaddons" target="_blank" class="internal">Donate</a>
       </div>
     </section>
+
   </form>
   <script src="../crossbrowser.js"></script>
   <script src="options.js"></script>

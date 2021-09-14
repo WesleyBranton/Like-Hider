@@ -26,12 +26,6 @@ function updateCSS(settings) {
             if (newCSS.length > 0) newCSS += '\n\n';
             newCSS += code.hideLikeButton;
         }
-
-        // Improve "Sponsored" content label
-        if (settings.betterSponsor) {
-            if (newCSS.length > 0) newCSS += '\n\n';
-            newCSS += code.betterSponsor;
-        }
     }
 
     css = newCSS;

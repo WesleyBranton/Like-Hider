@@ -43,7 +43,7 @@ function updateDemo() {
  */
 function pageType() {
     if (!window.location.href.includes('type=ui')) {
-        document.body.classList.add('tab');
+        document.body.classList.add('browser-style-page');
     }
 }
 

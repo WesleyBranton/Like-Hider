@@ -23,7 +23,7 @@
     }],
 
     "background": {
-        "scripts": ["crossbrowser.js", "css.js", "background.js"]
+        "scripts": ["storagemanager.js", "crossbrowser.js", "css.js", "background.js"]
     },
 
     "options_ui": {

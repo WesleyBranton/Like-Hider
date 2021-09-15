@@ -19,10 +19,11 @@ function saveOptions() {
  * Load options from settings
  */
 function restoreOptions(setting) {
-    // Update GUI
-    if (setting.hideNotification != undefined) document.settings.notifications.value = setting.hideNotification;
-    if (setting.hideLikeCounter != undefined) document.settings.counters.value = setting.hideLikeCounter;
-    if (setting.hideLikeButton != undefined) document.settings.buttons.value = setting.hideLikeButton;
+    const storage = new StorageManager(setting);
+    
+    document.settings.notifications.value = storage.getSetting('hideNotification');
+    document.settings.counters.value = storage.getSetting('hideLikeCounter');
+    document.settings.buttons.value = storage.getSetting('hideLikeButton');
 
     updateDemo();
 }

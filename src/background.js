@@ -7,28 +7,20 @@
  * @param {Object} settings
  */
 function updateCSS(settings) {
-    let newCSS = '';
+    const storage = new StorageManager(settings);
+    const keys = ['hideNotification', 'hideLikeCounter', 'hideLikeButton'];
+    css = '';
 
-    // Hide like notifications
-    if (!settings || settings.hideNotification == undefined || settings.hideNotification) {
-        newCSS += code.hideNotification;
-    }
+    for (const key of keys) {
+        if (storage.getSetting(key)) {
+            if (css.length > 0) {
+                css += '\n\n';
+            }
 
-    if (settings) {
-        // Hide post/comment like counter
-        if (settings.hideLikeCounter) {
-            if (newCSS.length > 0) newCSS += '\n\n';
-            newCSS += code.hideLikeCounter;
-        }
-
-        // Hide post/comment like button
-        if (settings.hideLikeButton) {
-            if (newCSS.length > 0) newCSS += '\n\n';
-            newCSS += code.hideLikeButton;
+            css += code[key];
         }
     }
 
-    css = newCSS;
     loaded = true;
     broadcastToPorts();
 }

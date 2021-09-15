@@ -1,0 +1,78 @@
+{
+    "extensionName": {
+        "message": "Like Hider for Facebook"
+    },
+    "extensionDescription": {
+        "message": "This browser extension hides likes and reactions from appearing in your Facebook notifications"
+    },
+
+    "optionsTitle": {
+        "message": "$EXTENSIONNAME$ Options",
+        "placeholders": {
+            "extensionname": {
+                "content": "$1"
+            }
+        }
+    },
+    "valueShow": {
+        "message": "Show"
+    },
+    "valueHide": {
+        "message": "Hide"
+    },
+    "settingNotifications": {
+        "message": "Like & reaction notifications"
+    },
+    "settingCounters": {
+        "message": "Like & reaction counters"
+    },
+    "settingButtons": {
+        "message": "Like & reaction buttons"
+    },
+    "bannerDonate": {
+        "message": "Like this add-on? Please, consider making a donation"
+    },
+    "buttonDonate": {
+        "message": "Donate"
+    },
+
+    "postAuthor": {
+        "message": "Jane Smith"
+    },
+    "postTime": {
+        "message": "8h"
+    },
+    "postText": {
+        "message": "I really like this add-on!"
+    },
+    "postLikeCounter": {
+        "message": "2 Likes"
+    },
+    "postCommentCounter": {
+        "message": "1 Comment"
+    },
+    "postActionLike": {
+        "message": "Like"
+    },
+    "postActionComment": {
+        "message": "Comment"
+    },
+    "postActionShare": {
+        "message": "Share"
+    },
+    "commentAuthor": {
+        "message": "Sam Doe"
+    },
+    "commentText": {
+        "message": "Me too!"
+    },
+    "commentActionReply": {
+        "message": "Reply"
+    },
+    "commentTime": {
+        "message": "15m"
+    },
+    "commentBlank": {
+        "message": "Write a comment..."
+    }
+}

@@ -17,8 +17,8 @@
 <body class="browser-style">
   <form name="settings" class="browser-style-container">
     <header class="panel-section panel-section-header">
-      <img class="icon-section-header" src="../icons/icon-96.png">
-      <h1 class="text-section-header">Like Hider for Facebook Settings</h1>
+      <img class="icon-section-header" src="../icons/icon-96.png" alt="">
+      <h1 class="text-section-header" data-i18n="optionsTitle" data-i18n-placeholders="extensionName"></h1>
     </header>
 
     <section class="panel-section">
@@ -26,88 +26,89 @@
         <div id="header" class="flexbox">
           <div id="image" class="noflex"></div>
           <div id="details" class="flex">
-            <span id="name" class="bold">Jane Smith</span>
-            <span id="time" class="sub fade better-sponsor">8h</span>
+            <span id="name" class="bold" data-i18n="postAuthor"></span>
+            <span id="time" class="sub fade better-sponsor" data-i18n="postTime"></span>
           </div>
         </div>
-        <div id="content" class="">I really Like Hider for Facebook add-on for Firefox!!!</div>
-        <div id="footer" class="">
+        <div id="content" data-i18n="postText"></div>
+        <div id="footer">
           <div id="count" class="flexbox">
-            <span id="like" class="flex blue hide-counter">2 Likes</span>
-            <span id="comment" class="flex fade">1 Comment</span>
+            <span id="like" class="flex blue hide-counter" data-i18n="postLikeCounter"></span>
+            <span id="comment" class="flex fade" data-i18n="postCommentCounter"></span>
           </div>
         </div>
         <div id="actions" class="flexbox">
-          <div id="like" class="flex bold fade disable-like">Like</div>
-          <div id="comment" class="flex bold fade">Comment</div>
-          <div id="share" class="flex bold fade">Share</div>
+          <div id="like" class="flex bold fade disable-like" data-i18n="postActionLike"></div>
+          <div id="comment" class="flex bold fade" data-i18n="postActionComment"></div>
+          <div id="share" class="flex bold fade" data-i18n="postActionShare"></div>
         </div>
-        <div id="comments" class="">
+        <div id="comments">
           <div id="comment" class="flexbox nocenter">
             <div id="image" class="noflex"></div>
             <div id="box" class="flex">
               <div id="text">
-                <span id="name" class="bold">Jane Doe</span>
-                <span id="content">Love it!</span>
-                <div id="counter" class="sub blue hide-counter">2 Likes</div>
+                <span id="name" class="bold" data-i18n="commentAuthor"></span>
+                <span id="content" data-i18n="commentText"></span>
+                <div id="counter" class="sub blue hide-counter" data-i18n="postLikeCounter"></div>
               </div>
               <div id="actions">
-                <span id="like" class="sub bold disable-like">Like</span>
-                <span id="reply" class="sub bold">Reply</span>
-                <span id="time" class="sub fade">15m</span>
+                <span id="like" class="sub bold disable-like" data-i18n="postActionLike"></span>
+                <span id="reply" class="sub bold" data-i18n="commentActionReply"></span>
+                <span id="time" class="sub fade" data-i18n="commentTime"></span>
               </div>
             </div>
           </div>
           <div id="new" class="flexbox">
             <div id="image" class="noflex"></div>
-            <div id="text" class="flex">Write a comment...</div>
+            <div id="text" class="flex" data-i18n="commentBlank"></div>
           </div>
         </div>
       </div>
     </section>
 
     <section class="panel-section">
-      <label>Like/reaction notifications</label>
+      <label data-i18n="settingNotifications"></label>
       <div class="flexbox">
         <input id="radio-notifications-false" type="radio" name="notifications" value="false">
-        <label class="clickable" for="radio-notifications-false">Show</label>
+        <label class="clickable" for="radio-notifications-false" data-i18n="valueShow"></label>
         <input id="radio-notifications-true" type="radio" name="notifications" value="true">
-        <label class="clickable" for="radio-notifications-true">Hide</label>
+        <label class="clickable" for="radio-notifications-true" data-i18n="valueHide"></label>
       </div>
     </section>
 
     <div class="panel-section-separator"></div>
 
     <section class="panel-section">
-      <label>Like/reaction counters</label>
+      <label data-i18n="settingCounters"></label>
       <div class="flexbox">
         <input id="radio-counters-false" type="radio" name="counters" value="false">
-        <label class="clickable" for="radio-counters-false">Show</label>
+        <label class="clickable" for="radio-counters-false" data-i18n="valueShow"></label>
         <input id="radio-counters-true" type="radio" name="counters" value="true">
-        <label class="clickable" for="radio-counters-true">Hide</label>
+        <label class="clickable" for="radio-counters-true" data-i18n="valueHide"></label>
       </div>
     </section>
 
     <div class="panel-section-separator"></div>
 
     <section class="panel-section">
-      <label>Like/reaction buttons</label>
+      <label data-i18n="settingButtons"></label>
       <div class="flexbox">
         <input id="radio-buttons-false" type="radio" name="buttons" value="false">
-        <label class="clickable" for="radio-buttons-false">Show</label>
+        <label class="clickable" for="radio-buttons-false" data-i18n="valueShow"></label>
         <input id="radio-buttons-true" type="radio" name="buttons" value="true">
-        <label class="clickable" for="radio-buttons-true">Hide</label>
+        <label class="clickable" for="radio-buttons-true" data-i18n="valueHide"></label>
       </div>
     </section>
 
     <section class="panel-section">
       <div id="donate" class="message-bar" disabled>
-        <span>Like this add-on? Please, consider making a donation.</span>
-        <a href="https://www.paypal.me/wbrantonaddons" target="_blank" class="internal">Donate</a>
+        <span data-i18n="bannerDonate"></span>
+        <a href="https://www.paypal.me/wbrantonaddons" target="_blank" class="internal" data-i18n="buttonDonate"></a>
       </div>
     </section>
 
   </form>
+  <script src="../lib/i18n.js"></script>
   <script src="../crossbrowser.js"></script>
   <script src="options.js"></script>
 </body>

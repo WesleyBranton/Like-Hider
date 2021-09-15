@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Like Hider for Facebook",
+    "name": "__MSG_extensionName__",
     "version": "3.5",
-    "description": "This browser extension hides likes and reactions from appearing in your Facebook notifications",
+    "description": "__MSG_extensionDescription__",
     "author": "Wesley Branton",
     "default_locale": "en",
 

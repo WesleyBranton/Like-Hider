@@ -195,3 +195,7 @@ body:not(.opera) .opera-only {
     display: none !important;
 }
 /* Browser specific - End */
+
+body:not(.browser-style-page) header {
+    display: none !important;
+}

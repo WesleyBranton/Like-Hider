@@ -43,11 +43,13 @@ function updateDemo() {
  */
 function pageType() {
     if (!window.location.href.includes('type=ui')) {
-        document.body.classList.add('tab');
+        document.body.classList.add('browser-style-page');
     }
 }
 
 pageType();
 document.body.classList.add(BROWSERSTRINGS[runningOn].toLowerCase());
+i18nParse();
+document.title = browser.i18n.getMessage('optionsTitle', browser.i18n.getMessage('extensionName'));
 browser.storage.local.get(restoreOptions);
 document.querySelector('form').addEventListener('change', saveOptions);

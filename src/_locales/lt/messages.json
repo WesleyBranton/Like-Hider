@@ -1,0 +1,78 @@
+{
+    "extensionName": {
+        "message": "Facebook patiktukų slėpėjas"
+    },
+    "extensionDescription": {
+        "message": "Šis naršyklės plėtinys paslepia Facebook pranešimuose rodomu patiktukus ir reakcijas"
+    },
+
+    "optionsTitle": {
+        "message": "$EXTENSIONNAME$ parinktys",
+        "placeholders": {
+            "extensionname": {
+                "content": "$1"
+            }
+        }
+    },
+    "valueShow": {
+        "message": "Rodyti"
+    },
+    "valueHide": {
+        "message": "Slėpti"
+    },
+    "settingNotifications": {
+        "message": "Patiktukų ir reakcijų pranešimai"
+    },
+    "settingCounters": {
+        "message": "Patiktukų ir reakcijų skatiliukai"
+    },
+    "settingButtons": {
+        "message": "Patiktukų ir reakcijų mygtukai"
+    },
+    "bannerDonate": {
+        "message": "Patinka šis priedas? Apsvarstykite galimybę paaukoti"
+    },
+    "buttonDonate": {
+        "message": "Aukoti"
+    },
+
+    "postAuthor": {
+        "message": "Jonas Jonaitis"
+    },
+    "postTime": {
+        "message": "8 val."
+    },
+    "postText": {
+        "message": "Man labai patinka šis priedas!"
+    },
+    "postLikeCounter": {
+        "message": "2 Patiktukai"
+    },
+    "postCommentCounter": {
+        "message": "1 Komentarai"
+    },
+    "postActionLike": {
+        "message": "Patinka"
+    },
+    "postActionComment": {
+        "message": "Komentuoti"
+    },
+    "postActionShare": {
+        "message": "Bendrinti"
+    },
+    "commentAuthor": {
+        "message": "Petras Petraitis"
+    },
+    "commentText": {
+        "message": "Man taip pat!"
+    },
+    "commentActionReply": {
+        "message": "Atsakyti"
+    },
+    "commentTime": {
+        "message": "15 min."
+    },
+    "commentBlank": {
+        "message": "Rašykite komentarą..."
+    }
+}

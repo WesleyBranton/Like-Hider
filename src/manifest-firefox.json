@@ -36,17 +36,18 @@
             "*://*.facebook.com/*",
             "*://*.facebookcorewwwi.onion/*"
         ],
-        "js": ["crossbrowser.js", "content.js"],
+        "js": ["content.js"],
         "run_at": "document_start"
     }],
 
     "background": {
-        "scripts": ["storagemanager.js", "crossbrowser.js", "css.js", "background.js"]
+        "scripts": ["background.js"]
     },
 
     "options_ui": {
-        "page": "options/options.html?type=ui",
-        "browser_style": false
+        "page": "options/options.html",
+        "browser_style": false,
+        "open_in_tab": true
     },
 
     "permissions": [

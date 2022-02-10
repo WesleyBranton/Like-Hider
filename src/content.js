@@ -3,30 +3,27 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 /**
- * Update CSS on page
- * @param {String} css
+ * Request full CSS update
  */
-function injectCSS(css) {
-    let sheet = document.getElementById('like-hider-for-facebook-css');
-
-    if (!document.head) {
-        document.onreadystatechange = () => {
-            if (document.readyState == 'interactive') {
-                injectCSS(css);
-            }
-        }
-        return;
-    }
-
-    if (!sheet) {
-        sheet = document.createElement('style');
-        sheet.setAttribute('type', 'text/css');
-        sheet.id = 'like-hider-for-facebook-css';
-        document.head.appendChild(sheet);
-    }
-
-    sheet.textContent = css;
+function fullUpdate() {
+    browser.runtime.sendMessage({action: 'fullUpdate'});
 }
 
-const port = browser.runtime.connect( {name: Date.now() + "" } );
-port.onMessage.addListener(injectCSS);
+/**
+ * Request partial CSS update based on detected storage changes
+ * @param {object} changes
+ * @param {string} area
+ */
+function partialUpdate(changes, area) {
+    if (area == 'local') {
+        browser.runtime.sendMessage({
+            action: 'partialUpdate',
+            changes: changes
+        });
+    }
+}
+
+if (typeof browser != "object") browser = chrome;
+
+fullUpdate();
+browser.storage.onChanged.addListener(partialUpdate);

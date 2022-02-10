@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "__MSG_extensionName__",
     "version": "4.0",
     "description": "__MSG_extensionDescription__",
@@ -14,16 +14,24 @@
         "128": "icons/icon-128.png"
     },
 
+    "action": {
+        "default_icon": {
+            "19": "icons/icon-19.png",
+            "38": "icons/icon-38.png"
+        },
+        "default_title": "__MSG_extensionName__"
+    },
+
     "content_scripts": [{
         "matches": [
             "*://*.facebook.com/*"
         ],
-        "js": ["crossbrowser.js", "content.js"],
+        "js": ["content.js"],
         "run_at": "document_start"
     }],
 
     "background": {
-        "scripts": ["storagemanager.js", "crossbrowser.js", "css.js", "background.js"]
+        "service_worker": "background.js"
     },
 
     "options_ui": {
@@ -34,6 +42,10 @@
 
     "permissions": [
         "storage",
+        "scripting"
+    ],
+
+    "host_permissions": [
         "*://*.facebook.com/*"
     ]
 }

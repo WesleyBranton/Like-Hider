@@ -3,94 +3,54 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 /**
- * Generate and cache new CSS based on user settings
- * @param {Object} settings
+ * Refresh CSS files for tab
+ * @param {number} tabId
+ * @param {Array} keys
  */
-function updateCSS(settings) {
-    const storage = new StorageManager(settings);
-    const keys = ['hideNotification', 'hideLikeCounter', 'hideLikeButton'];
-    css = '';
-
-    for (const key of keys) {
-        if (storage.getSetting(key)) {
-            if (css.length > 0) {
-                css += '\n\n';
+function refreshCSS(tabId, keys) {
+    browser.storage.local.get(keys, (settings) => {
+        for (const key of keys) {
+            if (typeof settings[key] != 'boolean') {
+                settings[key] = defaults[key];
             }
 
-            css += code[key];
-        }
-    }
-
-    loaded = true;
-    broadcastToPorts();
-}
-
-/**
- * Reload user settings from Storage API
- * @param {boolean} validate
- */
-function reloadSettings(validate) {
-    browser.storage.local.get((data) => {
-        if (validate) {
-            validateAndUpdate(data);
-        } else {
-            updateCSS(data);
+            removeCSS(tabId, key, () => {
+                if (settings[key]) {
+                    addCSS(tabId, key);
+                }
+            });
         }
     });
 }
 
 /**
- * Migrate Storage API data to new model (if required)
- * @param {Object} data
+ * Remove CSS file from tab
+ * @param {number} tabId
+ * @param {string} cssName
+ * @param {Function} callback
  */
-function validateAndUpdate(data) {
-    if (data.setting) {
-        browser.storage.local.clear(() => {
-            browser.storage.local.set(data.setting, () => {
-                reloadSettings(false);
-            });
-        });
-    } else {
-        updateCSS(data);
-    }
+ function removeCSS(tabId, cssName, callback) {
+    browser.tabs.removeCSS(tabId, {
+        file: 'css/' + cssName + '.css'
+    }, callback);
 }
 
 /**
- * Open connection to content script
- * @param {Object} port
+ * Add CSS file to tab
+ * @param {number} tabId
+ * @param {string} cssName
  */
-function registerPort(port) {
-    while (ports[port.name]) {
-        port.name = parseInt(port.name) + 1 + '';
-    }
-
-    ports[port.name] = port;
-    port.onDisconnect.addListener(unregisterPort);
-    if (loaded) port.postMessage(css);
-}
-
-/**
- * Close connection to content script
- * @param {Object} port
- */
-function unregisterPort(port) {
-    delete ports[port.name];
-}
-
-/**
- * Send CSS to all content scripts
- */
-function broadcastToPorts() {
-    for (let port of Object.values(ports)) {
-        port.postMessage(css);
-    }
+function addCSS(tabId, cssName) {
+    browser.tabs.insertCSS(tabId, {
+        file: 'css/' + cssName + '.css'
+    });
 }
 
 /**
  * Handle installation
  * @param {Object} details
  */
-function handleInstalled(details) {
+ function handleInstalled(details) {
     if (details.reason == 'install') {
         openOptions();
     } else if (details.reason == 'update') {
@@ -106,19 +66,86 @@ function handleInstalled(details) {
 /**
  * Open options page
  */
-function openOptions() {
-    browser.tabs.create({
-        url: 'options/options.html'
-    });
+ function openOptions() {
+    browser.runtime.openOptionsPage();
 }
 
-let css = '';
-let loaded = false;
-const ports = {};
+/**
+ * Load the content scripts into existing tabs if they are not already loaded (only required for Chromium MV3)
+ */
+function loadContentScripts() {
+    if (typeof browser.storage.session == 'object') {
+        browser.storage.session.get(['firstRunComplete'], (data) => {
+            if (!data.firstRunComplete) {
+                browser.tabs.query({
+                    url: ['*://*.facebook.com/*']
+                }, (tabs) => {
+                    for (const t of tabs) {
+                        browser.scripting.executeScript({
+                            files: ['content.js'],
+                            target: {
+                                tabId: t.id
+                            }
+                        });
+                    }
+                });
 
-browser.runtime.onConnect.addListener(registerPort);
-browser.storage.onChanged.addListener(() => { reloadSettings(false) });
+                browser.storage.session.set({
+                    firstRunComplete: true
+                });
+            }
+        });
+    }
+}
+
+/**
+ * Handle incoming messages from content scripts
+ * @param {object} message
+ * @param {object} sender
+ * @param {Function} sendResponse
+ */
+ function handleMessage(message, sender, sendResponse) {
+    switch (message.action) {
+        case 'fullUpdate':
+            refreshCSS(sender.tab.id, Object.keys(defaults));
+            break;
+        case 'partialUpdate':
+            refreshCSS(sender.tab.id, Object.keys(message.changes));
+            break;
+    }
+}
+
+/**
+ * Convert Firefox formatted CSS injection information to Chromium format
+ * @param {number} tabId
+ * @param {object} cssInjection
+ * @returns cssInjection
+ */
+function convertCSSInjection(tabId, cssInjection) {
+    return {
+        files: [cssInjection.file],
+        target: {
+            tabId: tabId
+        }
+    };
+}
+
+// Convert Chrome API to Browser API format
+if (typeof browser != "object") {
+    browser = chrome;
+    browser.tabs.insertCSS = (tabId, cssInjection, callback) => { browser.scripting.insertCSS(convertCSSInjection(tabId, cssInjection), callback); };
+    browser.tabs.removeCSS = (tabId, cssInjection, callback) => { browser.scripting.removeCSS(convertCSSInjection(tabId, cssInjection), callback); };
+    browser.pageAction = browser.action;
+}
+
+const defaults = {
+    hideNotification: true,
+    hideLikeCounter: false,
+    hideLikeButton: false
+};
+
+browser.runtime.onMessage.addListener(handleMessage);
+browser.pageAction.onClicked.addListener(openOptions);
 browser.runtime.onInstalled.addListener(handleInstalled);
-if (runningOn == browsers.FIREFOX) browser.pageAction.onClicked.addListener(openOptions);
 
-reloadSettings(true);
+loadContentScripts();

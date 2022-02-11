@@ -69,9 +69,9 @@
     <section class="panel-section">
       <label data-i18n="settingNotifications"></label>
       <div class="flexbox">
-        <input id="radio-notifications-false" type="radio" name="notifications" value="false">
+        <input id="radio-notifications-false" type="radio" name="hideNotification" value="false">
         <label class="clickable" for="radio-notifications-false" data-i18n="valueShow"></label>
-        <input id="radio-notifications-true" type="radio" name="notifications" value="true">
+        <input id="radio-notifications-true" type="radio" name="hideNotification" value="true">
         <label class="clickable" for="radio-notifications-true" data-i18n="valueHide"></label>
       </div>
     </section>
@@ -81,9 +81,9 @@
     <section class="panel-section">
       <label data-i18n="settingCounters"></label>
       <div class="flexbox">
-        <input id="radio-counters-false" type="radio" name="counters" value="false">
+        <input id="radio-counters-false" type="radio" name="hideLikeCounter" value="false">
         <label class="clickable" for="radio-counters-false" data-i18n="valueShow"></label>
-        <input id="radio-counters-true" type="radio" name="counters" value="true">
+        <input id="radio-counters-true" type="radio" name="hideLikeCounter" value="true">
         <label class="clickable" for="radio-counters-true" data-i18n="valueHide"></label>
       </div>
     </section>
@@ -93,9 +93,9 @@
     <section class="panel-section">
       <label data-i18n="settingButtons"></label>
       <div class="flexbox">
-        <input id="radio-buttons-false" type="radio" name="buttons" value="false">
+        <input id="radio-buttons-false" type="radio" name="hideLikeButton" value="false">
         <label class="clickable" for="radio-buttons-false" data-i18n="valueShow"></label>
-        <input id="radio-buttons-true" type="radio" name="buttons" value="true">
+        <input id="radio-buttons-true" type="radio" name="hideLikeButton" value="true">
         <label class="clickable" for="radio-buttons-true" data-i18n="valueHide"></label>
       </div>
     </section>
@@ -109,7 +109,6 @@
 
   </form>
   <script src="../lib/i18n.js"></script>
-  <script src="../storagemanager.js"></script>
   <script src="../crossbrowser.js"></script>
   <script src="options.js"></script>
 </body>

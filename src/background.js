@@ -57,7 +57,7 @@ function addCSS(tabId, cssName) {
         const previousVersion = parseFloat(details.previousVersion);
         if (previousVersion < 3) {
             browser.tabs.create({
-                url: 'https://addons.wesleybranton.com/addon/like-hider-for-facebook/update/v3_0'
+                url: `${webBase}/update/v3_0`
             });
         }
     }
@@ -68,6 +68,29 @@ function addCSS(tabId, cssName) {
  */
  function openOptions() {
     browser.runtime.openOptionsPage();
+}
+
+/**
+ * Set up uninstall page
+ */
+ function setUninstallPage() {
+    getSystemDetails((details) => {
+        browser.runtime.setUninstallURL(`${webBase}/uninstall/?browser=${details.browser}&os=${details.os}&version=${details.version}`);
+    });
+}
+
+/**
+ * Send system details to callback
+ * @param {Function} callback
+ */
+ function getSystemDetails(callback) {
+    browser.runtime.getPlatformInfo((platform) => {
+        callback({
+            browser: (isChrome) ? 'chromium' : 'firefox',
+            version: browser.runtime.getManifest().version,
+            os: platform.os
+        });
+    });
 }
 
 /**
@@ -130,22 +153,25 @@ function convertCSSInjection(tabId, cssInjection) {
     };
 }
 
-// Convert Chrome API to Browser API format
-if (typeof browser != "object") {
-    browser = chrome;
-    browser.tabs.insertCSS = (tabId, cssInjection, callback) => { browser.scripting.insertCSS(convertCSSInjection(tabId, cssInjection), callback); };
-    browser.tabs.removeCSS = (tabId, cssInjection, callback) => { browser.scripting.removeCSS(convertCSSInjection(tabId, cssInjection), callback); };
-    browser.pageAction = browser.action;
-}
-
+const isChrome = typeof browser != "object";
+const webBase = 'https://addons.wesleybranton.com/addon/like-hider-for-facebook';
 const defaults = {
     hideNotification: true,
     hideLikeCounter: false,
     hideLikeButton: false
 };
 
+// Convert Chrome API to Browser API format
+if (isChrome) {
+    browser = chrome;
+    browser.tabs.insertCSS = (tabId, cssInjection, callback) => { browser.scripting.insertCSS(convertCSSInjection(tabId, cssInjection), callback); };
+    browser.tabs.removeCSS = (tabId, cssInjection, callback) => { browser.scripting.removeCSS(convertCSSInjection(tabId, cssInjection), callback); };
+    browser.pageAction = browser.action;
+}
+
 browser.runtime.onMessage.addListener(handleMessage);
 browser.pageAction.onClicked.addListener(openOptions);
 browser.runtime.onInstalled.addListener(handleInstalled);
 
 loadContentScripts();
+setUninstallPage();

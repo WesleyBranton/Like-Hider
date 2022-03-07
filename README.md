@@ -5,8 +5,9 @@ But why not take it a step further? A common theory is that social media can inc
 
 This browser extension also can hide the likes and reactions counter from posts and comments. You can also disable the “Like” button from Facebook entirely.
 
-[<img src=".github/fxaddon.png">](https://addons.mozilla.org/firefox/addon/like-hider/)
+[<img src=".github/firefox.png">](https://addons.mozilla.org/firefox/addon/like-hider/)
 [<img src=".github/chrome.png">](https://chrome.google.com/webstore/detail/like-hider-for-facebook/kbhhjpklnokbmlmngceginlbgfjjmojk)
+[<img src=".github/edge.png">](https://microsoftedge.microsoft.com/addons/detail/like-hider-for-facebook/dohceomleomkfbkehhapigpncpplfkim)
 
 ## Contribute
 ### Development

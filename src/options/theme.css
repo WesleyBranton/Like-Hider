@@ -153,13 +153,14 @@ input[type=radio] {
 }
 
 #donate a {
-    color: white;
+    color: var(--blue-60);
     cursor: pointer;
     font-weight: bold;
-    background: rgba(255, 255, 255, .4);
-    padding: 4px 10px;
+    background: white;
+    padding: 0.5em 2em;
     text-decoration: none !important;
     border-radius: 5px;
+    margin: 0.5em;
 }
 
 #donate a:hover {

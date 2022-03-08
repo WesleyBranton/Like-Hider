@@ -25,6 +25,7 @@
             "38": "icons/icon-38.png"
         },
         "default_title": "__MSG_extensionName__",
+        "default_popup": "options/options.html?type=popup",
         "show_matches": [
             "*://*.facebook.com/*",
             "*://*.facebookcorewwwi.onion/*"

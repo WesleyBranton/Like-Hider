@@ -16,12 +16,12 @@
 
 <body class="browser-style">
   <form name="settings" class="browser-style-container">
-    <header class="panel-section panel-section-header">
+    <header class="panel-section panel-section-header tab-only">
       <img class="icon-section-header" src="../icons/icon-96.png" alt="">
       <h1 class="text-section-header" data-i18n="optionsTitle" data-i18n-placeholders="extensionName"></h1>
     </header>
 
-    <section class="panel-section">
+    <section class="panel-section tab-only">
       <div id="post">
         <div id="header" class="flexbox">
           <div id="image" class="noflex"></div>
@@ -100,12 +100,16 @@
       </div>
     </section>
 
-    <section class="panel-section">
+    <section class="panel-section tab-only">
       <div id="donate" class="message-bar" disabled>
         <span data-i18n="bannerDonate"></span>
         <a href="https://www.paypal.me/wbrantonaddons" target="_blank" class="internal" data-i18n="buttonDonate"></a>
       </div>
     </section>
+
+    <footer class="panel-section panel-section-footer help-row popup-only">
+      <button id="options-tab-button" type="button" class="secondary" data-i18n="actionOpenInNewTab"></button>
+    </footer>
 
   </form>
   <script src="../lib/i18n.js"></script>

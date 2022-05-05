@@ -9,7 +9,7 @@
 function saveOption(event) {
     const key = event.target.name;
     const item = {};
-    item[key] = (document.settings[key].value == 'true');
+    item[key] = !document.settings[key].checked;
 
     browser.storage.local.set(item);
     updateDemo();
@@ -18,16 +18,18 @@ function saveOption(event) {
 /**
  * Load options from settings
  */
-function restoreOptions(setting) {
-    for (const key of Object.keys(defaults)) {
-        if (typeof setting[key] != 'boolean') {
-            setting[key] = defaults[key];
+function restoreOptions() {
+    browser.storage.local.get((setting) => {
+        for (const key of Object.keys(defaults)) {
+            if (typeof setting[key] != 'boolean') {
+                setting[key] = defaults[key];
+            }
+
+            document.settings[key].checked = !setting[key];
         }
 
-        document.settings[key].value = setting[key];
-    }
-
-    updateDemo();
+        updateDemo();
+    });
 }
 
 /**
@@ -37,17 +39,26 @@ function updateDemo() {
     const post = document.getElementById('post');
 
     post.className = '';
-    if (document.settings.hideLikeCounter.value == 'true') post.classList.add('hide-counter');
-    if (document.settings.hideLikeButton.value == 'true') post.classList.add('disable-like');
+    if (!document.settings.hideLikeCounter.checked) post.classList.add('hide-counter');
+    if (!document.settings.hideLikeButton.checked) post.classList.add('disable-like');
 }
 
 /**
  * Check if the options page is being loaded in a new tab
  */
 function pageType() {
-    if (!window.location.href.includes('type=ui')) {
+    const type = new URL(window.location).searchParams.get('type');
+
+    if (type == 'popup') {
+        document.body.classList.add(`page-type-${type}`);
+    } else {
         document.body.classList.add('browser-style-page');
+        document.body.classList.add('page-type-tab');
     }
+}
+
+function openOptionsInNewTab() {
+    browser.runtime.openOptionsPage();
 }
 
 const defaults = {
@@ -60,5 +71,7 @@ pageType();
 document.body.classList.add(BROWSERSTRINGS[runningOn].toLowerCase());
 i18nParse();
 document.title = browser.i18n.getMessage('optionsTitle', browser.i18n.getMessage('extensionName'));
-browser.storage.local.get(restoreOptions);
+restoreOptions();
+browser.storage.onChanged.addListener(restoreOptions);
 document.querySelector('form').addEventListener('change', saveOption);
+document.getElementById('options-tab-button').addEventListener('click', openOptionsInNewTab);

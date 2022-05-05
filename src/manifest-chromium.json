@@ -19,7 +19,8 @@
             "19": "icons/icon-19.png",
             "38": "icons/icon-38.png"
         },
-        "default_title": "__MSG_extensionName__"
+        "default_title": "__MSG_extensionName__",
+        "default_popup": "options/options.html?type=popup"
     },
 
     "content_scripts": [{

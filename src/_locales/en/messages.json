@@ -14,6 +14,11 @@
             }
         }
     },
+
+    "actionOpenInNewTab": {
+        "message": "Open in new tab"
+    },
+
     "valueShow": {
         "message": "Show"
     },

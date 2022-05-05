@@ -9,7 +9,7 @@
 function saveOption(event) {
     const key = event.target.name;
     const item = {};
-    item[key] = (document.settings[key].value == 'true');
+    item[key] = !document.settings[key].checked;
 
     browser.storage.local.set(item);
     updateDemo();
@@ -25,7 +25,7 @@ function restoreOptions() {
                 setting[key] = defaults[key];
             }
 
-            document.settings[key].value = setting[key];
+            document.settings[key].checked = !setting[key];
         }
 
         updateDemo();
@@ -39,8 +39,8 @@ function updateDemo() {
     const post = document.getElementById('post');
 
     post.className = '';
-    if (document.settings.hideLikeCounter.value == 'true') post.classList.add('hide-counter');
-    if (document.settings.hideLikeButton.value == 'true') post.classList.add('disable-like');
+    if (!document.settings.hideLikeCounter.checked) post.classList.add('hide-counter');
+    if (!document.settings.hideLikeButton.checked) post.classList.add('disable-like');
 }
 
 /**

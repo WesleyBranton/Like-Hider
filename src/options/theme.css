@@ -200,3 +200,7 @@ body:not(.page-type-tab) .tab-only,
 body:not(.page-type-popup) .popup-only {
     display: none !important;
 }
+
+.switch {
+    margin-left: 1em;
+}

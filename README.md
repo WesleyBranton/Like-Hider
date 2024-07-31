@@ -11,7 +11,7 @@ This browser extension also can hide the likes and reactions counter from posts 
 
 ## Contribute
 ### Development
-Visit the [contributing guide](https://github.com/WesleyBranton/Like-Hider-For-Facebook/blob/main/CONTRIBUTING.md) if you want to contribute to the project
+Visit the [contributing guide](https://github.com/WesleyBranton/Like-Hider/blob/main/CONTRIBUTING.md) if you want to contribute to the project
 
 ### Localization
 The Like Hider add-on supports localization. Now it's just a matter of getting the add-on translated into as many languages as possible. If you would like to help translate the add-on into your language, it would be greatly appreciated.
@@ -49,4 +49,4 @@ Also, consider leaving a review on the add-on store page. These reviews help oth
 While donations are certainly not required, they are very much appreciated. Financial support (even if it's just the cost of a cup of coffee) helps fund future development of this add-on. To make sure that you are donating to a legitimate source, please [use this link](https://paypal.me/wbrantonaddons).
 
 ## Release Notes
-Release notes can be found on [this GitHub repository](https://github.com/WesleyBranton/Like-Hider-For-Facebook/releases) or [the Firefox add-ons listing](https://addons.mozilla.org/firefox/addon/like-hider/versions/).
+Release notes can be found on [this GitHub repository](https://github.com/WesleyBranton/Like-Hider/releases) or [the Firefox add-ons listing](https://addons.mozilla.org/firefox/addon/like-hider/versions/).

@@ -1,4 +1,4 @@
-# Like Hider for Facebook
+# Like Hider
 Although it is a feature that many people have asked for, there is no way to stop likes and reactions on your posts and comments from displaying in your Facebook notifications. This browser extension does just that. De-clutter your notification window by getting rid of those pointless notifications about likes and reactions.
 
 But why not take it a step further? A common theory is that social media can increase depression and can become addictive. This is due, in part, to the liking system used by social media platforms, which provides gratification that keeps you coming back.
@@ -14,7 +14,7 @@ This browser extension also can hide the likes and reactions counter from posts 
 Visit the [contributing guide](https://github.com/WesleyBranton/Like-Hider-For-Facebook/blob/main/CONTRIBUTING.md) if you want to contribute to the project
 
 ### Localization
-The Like Hider for Facebook add-on supports localization. Now it's just a matter of getting the add-on translated into as many languages as possible. If you would like to help translate the add-on into your language, it would be greatly appreciated.
+The Like Hider add-on supports localization. Now it's just a matter of getting the add-on translated into as many languages as possible. If you would like to help translate the add-on into your language, it would be greatly appreciated.
 
 ### Creating an issue
 Issues are the ticketing system used on GitHub. It's used to track bugs and enhancements that developers can work on. Here are the 3 main types of issues and what to keep in mind when creating a new issue.
@@ -27,7 +27,7 @@ When create a new issue for a bug, please make sure to include as much informati
 Additional information about your computer operating system and the internet browser(s) that the issue occurs on is very helpful when trying to diagnose and fix problems.
 
 #### Enhancement / Feature Request
-We are always looking for ways to improve the Like Hider for Facebook add-on. We welcome feedback and suggestions on how we can improve the add-on and new features that could be introduced.
+We are always looking for ways to improve the Like Hider add-on. We welcome feedback and suggestions on how we can improve the add-on and new features that could be introduced.
 
 When creating an issue for an enhancement or feature request, it can often be helpful to provide some background about why you think a change is needed and how it would be helpful to other users. Please make sure to search through the other issues on this GitHub repository to make sure that the feature you are looking for hasn't already been filed by someone else.
 

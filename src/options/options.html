@@ -11,6 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="../lib/new_browser_style.css">
+  <link rel="stylesheet" href="../lib/fontawesome/css/fontawesome.css">
+  <link rel="stylesheet" href="../lib/fontawesome/css/solid.css">
   <link rel="icon" type="image/png" href="../icons/icon-96.png">
 </head>
 
@@ -92,9 +94,27 @@
       </div>
     </section>
 
-    <footer class="panel-section panel-section-footer help-row popup-only">
-      <button id="options-tab-button" type="button" class="secondary" data-i18n="actionOpenInNewTab"></button>
+    <footer class="panel-section help-row popup-only">
+      <button id="options-tab-button" type="button" class="secondary">
+        <span data-i18n="actionOpenInNewTab"></span>
+        <i class="fa-sharp fa-solid fa-up-right-from-square"></i>
+      </button>
+      <button id="options-feedback-button" type="button" class="secondary fit" data-i18n-tooltip="linkFeedback">
+        <i class="fa-sharp fa-solid fa-lightbulb"></i>
+      </button>
     </footer>
+
+    <footer class="panel-section panel-section-footer tab-only">
+      <div>
+          <a href="https://github.com/WesleyBranton/Like-Hider-For-Facebook/wiki" target="_blank" class="internal" data-i18n="linkHelp"></a>
+      </div>
+      <div>
+          <a href="https://paypal.me/wbrantonaddons" target="_blank" class="internal" data-i18n="linkDonate"></a>
+      </div>
+      <div>
+          <a id="feedbacklink" class="internal" data-i18n="linkFeedback"></a>
+      </div>
+  </footer>
 
   </form>
   <script src="../lib/i18n.js"></script>

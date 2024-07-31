@@ -57,6 +57,15 @@ function pageType() {
     }
 }
 
+/**
+ * Open feedback window
+ */
+function openFeedback() {
+    browser.runtime.sendMessage({
+        action: 'feedback'
+    });
+}
+
 function openOptionsInNewTab() {
     browser.runtime.openOptionsPage();
 }
@@ -75,3 +84,5 @@ restoreOptions();
 browser.storage.onChanged.addListener(restoreOptions);
 document.querySelector('form').addEventListener('change', saveOption);
 document.getElementById('options-tab-button').addEventListener('click', openOptionsInNewTab);
+document.getElementById('feedbacklink').addEventListener('click', openFeedback);
+document.getElementById('options-feedback-button').addEventListener('click', openFeedback);

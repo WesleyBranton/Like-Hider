@@ -135,6 +135,9 @@ function loadContentScripts() {
         case 'partialUpdate':
             refreshCSS(sender.tab.id, Object.keys(message.changes));
             break;
+        case 'feedback':
+            openFeedback();
+            break;
     }
 }
 
@@ -151,6 +154,20 @@ function convertCSSInjection(tabId, cssInjection) {
             tabId: tabId
         }
     };
+}
+
+/**
+ * Open feedback window
+ */
+function openFeedback() {
+    getSystemDetails((details) => {
+        browser.windows.create({
+            height: 700,
+            width: 450,
+            type: browser.windows.CreateType.PANEL,
+            url: `${webBase}/feedback/?browser=${details.browser}&os=${details.os}&version=${details.version}`
+        });
+    });
 }
 
 const isChrome = typeof browser != "object";

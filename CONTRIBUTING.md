@@ -17,24 +17,24 @@ The majority of the files in the source code are compatible with all supported b
 
 Other files may contain sections of code that are only used by a certain browser. These sections of code will still be included in the source code for other browsers, but should be appropriately labelled with a comment (were possible) to indicate that it's only used by a specific browser.
 
-Feel free to work on any of the [issues listed on GitHub](https://github.com/WesleyBranton/Like-Hider-For-Facebook/issues). To avoid working on the same issue as someone else, avoid working on issues that have already been assigned to someone. When you start working on an issue, please make sure to post a comment in the issue so that the issue can be assigned to you. If you decide to stop working on an issue, please make a comment in the issue so that you can be unassigned from the issue and someone else can start working on it.
+Feel free to work on any of the [issues listed on GitHub](https://github.com/WesleyBranton/Like-Hider/issues). To avoid working on the same issue as someone else, avoid working on issues that have already been assigned to someone. When you start working on an issue, please make sure to post a comment in the issue so that the issue can be assigned to you. If you decide to stop working on an issue, please make a comment in the issue so that you can be unassigned from the issue and someone else can start working on it.
 
 Issues are given the following labels to indicate the issue type:
 
 | Label | Description |
 | --- | --- |
-| [Bug](https://github.com/WesleyBranton/Like-Hider-For-Facebook/issues?q=is%3Aissue+is%3Aopen+label%3Abug) | This issue descibes something that is not currently working properly in the add-on. |
-| [Enhancement](https://github.com/WesleyBranton/Like-Hider-For-Facebook/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement) | This issue is requesting a new feature or the expansion of an existing aspect of the add-on. |
-| [Documentation](https://github.com/WesleyBranton/Like-Hider-For-Facebook/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation) | This issue is requesting a change or addition to the add-on documentation. |
-| [Won't Fix](https://github.com/WesleyBranton/Like-Hider-For-Facebook/issues?q=is%3Aissue+is%3Aopen+label%3Awontfix) | This issue is not currently possible or not something that will be addressed at the moment. |
-| [Invalid](https://github.com/WesleyBranton/Like-Hider-For-Facebook/issues?q=is%3Aissue+is%3Aopen+label%3Ainvalid) | This issue describes something that is not broken or the issue is not completed properly by the person that created it. |
-| [Duplicate](https://github.com/WesleyBranton/Like-Hider-For-Facebook/issues?q=is%3Aissue+is%3Aopen+label%3Aduplicate) | This issue is a duplicate of another issue that has already been filed. The duplicate issue will be referenced in the comments. |
+| [Bug](https://github.com/WesleyBranton/Like-Hider/issues?q=is%3Aissue+is%3Aopen+label%3Abug) | This issue descibes something that is not currently working properly in the add-on. |
+| [Enhancement](https://github.com/WesleyBranton/Like-Hider/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement) | This issue is requesting a new feature or the expansion of an existing aspect of the add-on. |
+| [Documentation](https://github.com/WesleyBranton/Like-Hider/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation) | This issue is requesting a change or addition to the add-on documentation. |
+| [Won't Fix](https://github.com/WesleyBranton/Like-Hider/issues?q=is%3Aissue+is%3Aopen+label%3Awontfix) | This issue is not currently possible or not something that will be addressed at the moment. |
+| [Invalid](https://github.com/WesleyBranton/Like-Hider/issues?q=is%3Aissue+is%3Aopen+label%3Ainvalid) | This issue describes something that is not broken or the issue is not completed properly by the person that created it. |
+| [Duplicate](https://github.com/WesleyBranton/Like-Hider/issues?q=is%3Aissue+is%3Aopen+label%3Aduplicate) | This issue is a duplicate of another issue that has already been filed. The duplicate issue will be referenced in the comments. |
 
 To help ensure that development effort is being spent efficiently, issues may also be assigned a priority label as a guideline:
 
 | Label | Description |
 | --- | --- |
-| [P1](https://github.com/WesleyBranton/Like-Hider-For-Facebook/issues?q=is%3Aissue+is%3Aopen+label%3AP1) | Critical priority |
-| [P2](https://github.com/WesleyBranton/Like-Hider-For-Facebook/issues?q=is%3Aissue+is%3Aopen+label%3AP2) | High priority |
-| [P3](https://github.com/WesleyBranton/Like-Hider-For-Facebook/issues?q=is%3Aissue+is%3Aopen+label%3AP3) | Medium priority |
-| [P4](https://github.com/WesleyBranton/Like-Hider-For-Facebook/issues?q=is%3Aissue+is%3Aopen+label%3AP4) | Low priority |
+| [P1](https://github.com/WesleyBranton/Like-Hider/issues?q=is%3Aissue+is%3Aopen+label%3AP1) | Critical priority |
+| [P2](https://github.com/WesleyBranton/Like-Hider/issues?q=is%3Aissue+is%3Aopen+label%3AP2) | High priority |
+| [P3](https://github.com/WesleyBranton/Like-Hider/issues?q=is%3Aissue+is%3Aopen+label%3AP3) | Medium priority |
+| [P4](https://github.com/WesleyBranton/Like-Hider/issues?q=is%3Aissue+is%3Aopen+label%3AP4) | Low priority |

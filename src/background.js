@@ -171,7 +171,7 @@ function openFeedback() {
 }
 
 const isChrome = typeof browser != "object";
-const webBase = 'https://addons.wesleybranton.com/addon/like-hider-for-facebook';
+const webBase = 'https://addons.wesleybranton.com/addon/like-hider';
 const defaults = {
     hideNotification: true,
     hideLikeCounter: false,

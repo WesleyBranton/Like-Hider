@@ -1,6 +1,6 @@
 {
     "extensionName": {
-        "message": "Like Hider for Facebook"
+        "message": "Like Hider"
     },
     "extensionDescription": {
         "message": "This browser extension hides likes and reactions from appearing in your Facebook notifications"
@@ -89,5 +89,8 @@
     },
     "linkFeedback": {
         "message": "Feedback"
+    },
+    "disclaimer": {
+        "message": "This add-on is not affiliated with, endorsed by, or sponsored by Facebook or Meta Platforms, Inc. Any activities, interactions, or transactions conducted on Facebook are solely the responsibility of the user and Facebook. This website assumes no liability for any actions taken on Facebook or any other third-party platforms."
     }
 }

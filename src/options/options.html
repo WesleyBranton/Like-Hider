@@ -6,7 +6,7 @@
 <html>
 
 <head>
-  <title>Like Hider for Facebook Settings</title>
+  <title data-i18n="optionsTitle" data-i18n-placeholders="extensionName"></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="theme.css">
@@ -88,7 +88,7 @@
     </section>
 
     <section class="panel-section tab-only">
-      <div id="donate" class="message-bar" disabled>
+      <div id="donate" class="message-bar">
         <span data-i18n="bannerDonate"></span>
         <a href="https://www.paypal.me/wbrantonaddons" target="_blank" class="internal" data-i18n="buttonDonate"></a>
       </div>
@@ -106,7 +106,7 @@
 
     <footer class="panel-section panel-section-footer tab-only">
       <div>
-          <a href="https://github.com/WesleyBranton/Like-Hider-For-Facebook/wiki" target="_blank" class="internal" data-i18n="linkHelp"></a>
+          <a href="https://github.com/WesleyBranton/Like-Hider/wiki" target="_blank" class="internal" data-i18n="linkHelp"></a>
       </div>
       <div>
           <a href="https://paypal.me/wbrantonaddons" target="_blank" class="internal" data-i18n="linkDonate"></a>
@@ -115,6 +115,10 @@
           <a id="feedbacklink" class="internal" data-i18n="linkFeedback"></a>
       </div>
   </footer>
+
+  <section class="panel-section tab-only">
+    <span class="disclaimer" data-i18n="disclaimer"></span>
+  </section>
 
   </form>
   <script src="../lib/i18n.js"></script>

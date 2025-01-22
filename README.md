@@ -7,7 +7,7 @@ This browser extension also can hide the likes and reactions counter from posts 
 
 [<img src=".github/firefox.png">](https://addons.mozilla.org/firefox/addon/like-hider/)
 [<img src=".github/chrome.png">](https://chrome.google.com/webstore/detail/like-hider-for-facebook/kbhhjpklnokbmlmngceginlbgfjjmojk)
-[<img src=".github/edge.png">](https://microsoftedge.microsoft.com/addons/detail/like-hider-for-facebook/dohceomleomkfbkehhapigpncpplfkim)
+<!-- [<img src=".github/edge.png">](https://microsoftedge.microsoft.com/addons/detail/like-hider-for-facebook/dohceomleomkfbkehhapigpncpplfkim) -->
 
 ## Contribute
 ### Development

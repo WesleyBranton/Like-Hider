@@ -170,7 +170,7 @@ function openFeedback() {
     });
 }
 
-const isChrome = typeof browser != "object";
+let isChrome = false;
 const webBase = 'https://addons.wesleybranton.com/addon/like-hider';
 const defaults = {
     hideNotification: true,
@@ -178,12 +178,22 @@ const defaults = {
     hideLikeButton: false
 };
 
-// Convert Chrome API to Browser API format
-if (isChrome) {
+if (typeof browser != 'object') {
     browser = chrome;
-    browser.tabs.insertCSS = (tabId, cssInjection, callback) => { browser.scripting.insertCSS(convertCSSInjection(tabId, cssInjection), callback); };
-    browser.tabs.removeCSS = (tabId, cssInjection, callback) => { browser.scripting.removeCSS(convertCSSInjection(tabId, cssInjection), callback); };
-    browser.pageAction = browser.action;
+}
+
+switch (browser.runtime.getManifest().manifest_version) {
+    case 2:
+        break;
+    case 3:
+        isChrome = true;
+        browser.tabs.insertCSS = (tabId, cssInjection, callback) => { browser.scripting.insertCSS(convertCSSInjection(tabId, cssInjection), callback); };
+        browser.tabs.removeCSS = (tabId, cssInjection, callback) => { browser.scripting.removeCSS(convertCSSInjection(tabId, cssInjection), callback); };
+        browser.pageAction = browser.action;
+        break;
+    default:
+        console.error("Unsupported manifest version: %d", browser.runtime.getManifest().manifest_version);
+        break;
 }
 
 browser.runtime.onMessage.addListener(handleMessage);

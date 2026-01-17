@@ -1,4 +1,7 @@
 {
+    "extensionName": {
+        "message": "Like Hider"
+    },
     "extensionDescription": {
         "message": "Šis naršyklės plėtinys paslepia Facebook pranešimuose rodomu patiktukus ir reakcijas"
     },
